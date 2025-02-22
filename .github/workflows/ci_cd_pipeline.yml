@@ -4,12 +4,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the code from repository
       - name: Get code
         uses: actions/checkout@v4
+      # Step 2: Build and test the project
       - name: Print GitHub Actor
         run: echo "The actor is ${{ github.actor }}"
-      - name: Use custom secret
-        run: echo "My secret key is ${{ secrets.MY_SECRET_KEY }}"
+      # Step 3: Set up Java
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
