@@ -14,6 +14,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
+          distribution: 'oracle'
       # Step 4: Build and test the project
       - name: Build with Maven
         run: mvn clean install --file pom.xml
