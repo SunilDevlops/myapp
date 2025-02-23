@@ -56,7 +56,7 @@ public class ResponseMessage {
                 response.getEnvironment() // Environment
         );
 
-        ResponseData responseData = new ResponseData(response.getData());
+        ResponseData responseData = new ResponseData(response.getMessage(), response.getData());
 
         return new ResponseMessage(responseHeader, responseData);
     }

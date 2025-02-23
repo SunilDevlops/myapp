@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 
 public class Customer {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
-    @SequenceGenerator(name = "customer_seq", sequenceName = "CUSTOMER_SEQUENCE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
+    //@SequenceGenerator(name = "customer_seq", sequenceName = "CUSTOMER_SEQUENCE", allocationSize = 1)
     private Long id;  // PK - UUID
     @Version
     private Long version;

@@ -16,7 +16,4 @@ public abstract class BaseResponse {
     private String requestId; // Unique request identifier
     private String path; // The path of the API that was accessed
     private String environment;
-
-
-
 }
