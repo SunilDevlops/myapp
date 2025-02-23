@@ -1,5 +1,12 @@
 name: myapp Project
-on: push
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,4 +26,3 @@ jobs:
       # Step 4: Build and test the project
       - name: Build with Maven
         run: mvn clean install --file pom.xml
-        
