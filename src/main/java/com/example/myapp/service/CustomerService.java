@@ -32,7 +32,9 @@ public class CustomerService {
         Optional<Customer> customer = customerRepository.findById(id);
         return customer.map(customerMapper::customerToCustomerResponse);
     }
-
+    public Optional<Customer> getCustById(Long id) {
+        return customerRepository.findById(id);
+    }
     public Optional<Customer> getCustomerByEmail(String emailAddress) {
         return customerRepository.findByEmailAddress(emailAddress);
     }
@@ -68,5 +70,11 @@ public class CustomerService {
         Customer customer = customerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
         customerRepository.delete(customer);
+    }
+
+
+    @Transactional
+    public void deleteCustomerById(Long id) {
+        customerRepository.deleteById(id);
     }
 }

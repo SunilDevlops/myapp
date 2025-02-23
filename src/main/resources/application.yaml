@@ -1,6 +1,17 @@
 spring:
   application:
     name: myapp
+    # For development environment
+  profiles:
+    active: dev
+
+    # For production environment
+    #spring.profiles.active=prod
+  sql:
+    init:
+      #schema-location: classpath:/sql/schema.sql
+      #data-location: classpath:sql/data.sql
+      mode: always
   h2:
     console:
       enabled: true
@@ -20,6 +31,4 @@ spring:
         format_sql: true
         use_sql_comments: true
 
-logging:
-  level:
-    root: INFO
+
