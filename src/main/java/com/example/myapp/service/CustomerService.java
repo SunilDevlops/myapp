@@ -41,12 +41,9 @@ public class CustomerService {
     public CustomerResponse createCustomer(CustomerRequest customerRequest) {
         // Map CustomerResponse to Customer entity
         Customer customer = customerMapper.customerRequestToCustomer(customerRequest);
-        System.out.println("Going to print");
         // Save customer to the repository or perform other business logic
         Customer createdCustomer =  customerRepository.save(customer);
-        System.out.println("Done printint");
 
-        //customerRepository.flush();
         return customerMapper.customerToCustomerResponse(createdCustomer);
     }
     @Transactional
