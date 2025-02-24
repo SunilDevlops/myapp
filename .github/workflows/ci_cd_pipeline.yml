@@ -1,9 +1,5 @@
 name: myapp Project
 on:
-  pull_request:
-    types:
-      - opened
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -23,6 +19,45 @@ jobs:
         with:
           java-version: '17'
           distribution: 'oracle'
-      # Step 4: Build and test the project
-      - name: Build with Maven
-        run: mvn clean install --file pom.xml
+      # Step 4: Run Code Linter (e.g., Checkstyle or SpotBugs)
+      - name: Run Code Linter (Checkstyle)
+        run: mvn checkstyle:check
+
+      # Step 5: Run Tests
+      - name: Run Tests
+        run: mvn test
+
+      # Step 6: Generate Javadoc (optional)
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc
+
+      # Step 7: Build and test the project
+      - name: Compile with Maven
+        run: mvn clean install --file pom.xml -DskipTests
+
+      # Run Build (skip tests if already done)
+      - name: Build Application
+        run: mvn clean package -DskipTests
+
+      # Build Docker Image
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3.9.0
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      # Step 5: Build the Docker image
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }} .
+
+      # Step 6: Push the Docker image to Docker Hub
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }}
+
+      # Step 7: Optional - Tag and push 'latest' version
+      - name: Tag and push 'latest'
+        run: |
+          docker tag ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:latest

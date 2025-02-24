@@ -1,6 +1,8 @@
 package com.example.myapp.service;
 
 import com.example.myapp.entity.Customer;
+import com.example.myapp.exception.custom.CustomerNotFoundException;
+import com.example.myapp.exception.custom.CustomersNotFoundException;
 import com.example.myapp.mapper.CustomerMapper;
 import com.example.myapp.model.CustomerRequest;
 import com.example.myapp.model.CustomerResponse;
@@ -28,16 +30,14 @@ public class CustomerService {
                 .map(customerMapper::customerToCustomerResponse) // Using Mapper
                 .collect(Collectors.toList());
     }
-    public Optional<CustomerResponse> getCustomerById(Long id) {
-        Optional<Customer> customer = customerRepository.findById(id);
-        return customer.map(customerMapper::customerToCustomerResponse);
+    public Optional<Customer> getCustomerById(Long id) {
+        return customerRepository.findById(id);
     }
-
     public Optional<Customer> getCustomerByEmail(String emailAddress) {
         return customerRepository.findByEmailAddress(emailAddress);
     }
 
-    @Transactional
+/*    @Transactional
     public CustomerResponse createCustomer(CustomerRequest customerRequest) {
         // Map CustomerResponse to Customer entity
         Customer customer = customerMapper.customerRequestToCustomer(customerRequest);
@@ -45,28 +45,31 @@ public class CustomerService {
         Customer createdCustomer =  customerRepository.save(customer);
 
         return customerMapper.customerToCustomerResponse(createdCustomer);
+    }*/
+    @Transactional
+    public Customer createCustomer(Customer customer) {
+        // Map CustomerResponse to Customer entity
+        // Save customer to the repository or perform other business logic
+        return Optional.ofNullable(customer)
+                .map(customerRepository::save)
+                .orElseThrow(() -> new RuntimeException("Failed while saving the customer in DB"));
+
     }
     @Transactional
-    public CustomerResponse updateCustomer(CustomerRequest customerDetails) {
-
-        //Customer updateCustomer = customerMapper.customerRequestToCustomer(customerDetails);
-        Customer customer = customerRepository.findById(customerDetails.getId())
+    public Customer updateCustomer(Long id, Customer customerDetails) {
+        return customerRepository.findById(id)
                 .map(existingCustomer -> {
-            // Perform the update if customer exists
-            existingCustomer.setFirstName(customerDetails.getFirstName());
-            existingCustomer.setMiddleName(customerDetails.getMiddleName());
-            existingCustomer.setLastName(customerDetails.getLastName());
-            existingCustomer.setEmailAddress(customerDetails.getEmailAddress());
-            existingCustomer.setPhoneNumber(customerMapper.mapPhoneNumber(customerDetails.getPhoneNumber()));            // Save the updated customer back to the database
-            return customerRepository.save(existingCustomer);
-        }).orElseThrow(() -> new RuntimeException("Customer not found"));
-        return customerMapper.customerToCustomerResponse(customer);
-
+                    // Update fields only if new values are provided, otherwise keep the existing values
+                    Optional.ofNullable(customerDetails.getFirstName()).ifPresent(existingCustomer::setFirstName);
+                    Optional.ofNullable(customerDetails.getMiddleName()).ifPresent(existingCustomer::setMiddleName);
+                    Optional.ofNullable(customerDetails.getLastName()).ifPresent(existingCustomer::setLastName);
+                    Optional.ofNullable(customerDetails.getEmailAddress()).ifPresent(existingCustomer::setEmailAddress);
+                    Optional.ofNullable(customerDetails.getPhoneNumber()).ifPresent(existingCustomer::setPhoneNumber);
+                    return customerRepository.save(existingCustomer);
+                }).orElseThrow(() -> new CustomerNotFoundException("Could not update. Customer not found for id "+customerDetails.getId()));
     }
     @Transactional
-    public void deleteCustomer(Long id) {
-        Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
-        customerRepository.delete(customer);
+    public void deleteCustomerById(Long id) {
+        customerRepository.deleteById(id);
     }
 }

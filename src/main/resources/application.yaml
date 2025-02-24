@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: myapp
+    # For development environment
+  profiles:
+    active: dev
+
+  sql:
+    init:
+      #schema-location: classpath:/sql/schema.sql
+      #data-location: classpath:sql/data.sql
+      mode: always
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "prometheus" ]
