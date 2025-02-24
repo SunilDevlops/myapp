@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install OpenJDK 17 on the Ubuntu image
+# Install OpenJDK-17 on the Ubuntu image
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk && \
     rm -rf /var/lib/apt/lists/*
