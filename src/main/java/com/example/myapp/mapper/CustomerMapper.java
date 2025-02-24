@@ -19,7 +19,11 @@ public interface CustomerMapper {
     @org.mapstruct.Named("concatenatePhoneNumber")
     default String concatenatePhoneNumber(PhoneNumber phoneNumber) {
         // Ensure none of the components are null, and concatenate them with hyphens
-        if (phoneNumber == null || phoneNumber.getCountryCode() == null || phoneNumber.getAreaCode() == null || phoneNumber.getPrefix() == null || phoneNumber.getLineNumber() == null) {
+        if (phoneNumber == null
+                || phoneNumber.getCountryCode() == null
+                || phoneNumber.getAreaCode() == null
+                || phoneNumber.getPrefix() == null
+                || phoneNumber.getLineNumber() == null) {
             return null;
         }
         return phoneNumber.getCountryCode() + " " + phoneNumber.getAreaCode() + "-" + phoneNumber.getPrefix() + "-" + phoneNumber.getLineNumber();

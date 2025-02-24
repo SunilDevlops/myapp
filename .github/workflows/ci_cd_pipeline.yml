@@ -23,6 +23,22 @@ jobs:
         with:
           java-version: '17'
           distribution: 'oracle'
-      # Step 4: Build and test the project
-      - name: Build with Maven
-        run: mvn clean install --file pom.xml
+      # Step 4: Run Code Linter (e.g., Checkstyle or SpotBugs)
+      - name: Run Code Linter (Checkstyle)
+        run: mvn checkstyle:check
+
+      # Step 5: Run Tests
+      - name: Run Tests
+        run: mvn test
+
+      # Step 6: Generate Javadoc (optional)
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc
+
+      # Step 7: Build and test the project
+      - name: Compile with Maven
+        run: mvn clean install --file pom.xml -DskipTests
+
+      # Run Build (skip tests if already done)
+      - name: Build Application
+        run: mvn clean package -DskipTests

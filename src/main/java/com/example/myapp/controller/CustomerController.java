@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * This package contains the controllers for the customer CURD operation.
+ * */
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
@@ -68,7 +70,9 @@ public class CustomerController {
         Customer savedCustomer = customerService.createCustomer(customer);
         if (savedCustomer != null) {
             CustomerResponse customerResponse = customerMapper.customerToCustomerResponse(savedCustomer);
-            SuccessResponse successResponse = new SuccessResponse("Customer created successfully with id " + customerResponse.getId(), customerResponse, HttpStatus.CREATED);
+            SuccessResponse successResponse
+                    = new SuccessResponse("Customer created successfully with id "
+                            + customerResponse.getId(), customerResponse, HttpStatus.CREATED);
             return new ResponseEntity<>(ResponseMessage.generateResponse(successResponse), HttpStatus.CREATED);
         } else {
             throw new CustomerCreationException("Failed to create customer");
@@ -90,7 +94,9 @@ public class CustomerController {
                                 CustomerResponse customerResponse = customerMapper.customerToCustomerResponse(updated);
 
                                 // Generate success response
-                                SuccessResponse successResponse = new SuccessResponse("Customer updated successfully with id " + id, customerResponse, HttpStatus.OK);
+                                SuccessResponse successResponse
+                                        = new SuccessResponse("Customer updated successfully with id "
+                                            + id, customerResponse, HttpStatus.OK);
                                 return new ResponseEntity<>(ResponseMessage.generateResponse(successResponse), HttpStatus.OK);
                             })
                             .orElseGet(() -> {

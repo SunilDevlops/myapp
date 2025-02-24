@@ -17,7 +17,10 @@ public class RequestFilter extends OncePerRequestFilter {
     private String activeProfile;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
         System.out.println("Inside request filter - doFilterInternal method");
         // Step 1: Generate a unique requestId for the current request
         String requestId = UUID.randomUUID().toString();
