@@ -15,5 +15,14 @@ spec:
       containers:
       - name: spring-boot-container
         image: sunilthedevops/my-springboot-curd-app:latest   # Replace with your Docker Hub image name and tag
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: "jdbc:mysql://mysql-service:3306/library_db"
+          - name: SPRING_DATASOURCE_USERNAME
+            value: "root"
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: "pass"
+          - name: SPRING_PROFILES_ACTIVE
+            value: "prod"  # Directly setting the profile to 'test'
         ports:
-        - containerPort: 8081
+        - containerPort: 8080

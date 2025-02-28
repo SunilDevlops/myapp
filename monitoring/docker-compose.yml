@@ -1,6 +1,25 @@
 version: '3.7'
 
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: library_db
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Mount the init.sql script
+      - mysql_data:/var/lib/mysql  # Ensure data persistence
+    networks:
+      - monitoring
   # Spring Boot Application
   app:
     image: sunilthedevops/my-springboot-curd-app:latest   # Use your Spring Boot app image
@@ -10,9 +29,16 @@ services:
     ports:
       - "8080:8080"         # Expose the Spring Boot app
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/library_db  # MySQL database URL inside the container
+      SPRING_DATASOURCE_USERNAME: root  # MySQL username
+      SPRING_DATASOURCE_PASSWORD: pass  # MySQL password
+      SPRING_PROFILES_ACTIVE: uat3
     networks:
       - monitoring
+    depends_on:
+      mysql:
+        condition: service_healthy  # Wait for MySQL to be healthy before starting Spring Boot
+
 
   # Prometheus Service
   prometheus:
@@ -41,7 +67,9 @@ services:
     depends_on:
       - prometheus
     restart: unless-stopped
-
+volumes:
+  mysql_data:
+    driver: local
 networks:
   monitoring:
     driver: bridge
