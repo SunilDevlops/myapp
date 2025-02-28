@@ -13,4 +13,3 @@ create table CUSTOMER_T (
 	unique(EMAIL_ADDRESS)
 );
 
-create SEQUENCE CUSTOMER_SEQUENCE START with 8 INCREMENT by 1;
