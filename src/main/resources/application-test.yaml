@@ -1,0 +1,30 @@
+# Test profile configuration
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect  # Make sure to use MySQLDialect
+    show-sql: true   # Set to true to log SQL queries in the console (for debugging)
+    hibernate:
+      ddl-auto: update    # Can be 'none', 'update', 'create', 'create-drop', etc.
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  sql:
+    init:
+      #schema-location: classpath:/sql/schema.sql
+      #data-location: classpath:sql/data.sql
+      mode: always
+  h2:
+    console:
+      enabled: true
+  logging:
+    level:
+      org.springframework: INFO

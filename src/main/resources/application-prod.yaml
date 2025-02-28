@@ -2,7 +2,7 @@
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: prod
   datasource:
     url: jdbc:mysql://localhost:3306/library_db
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -15,17 +15,19 @@ spring:
       pool-name: HikariCP     # Optional name for your connection pool
   sql:
     init:
+      #schema-location: classpath:/sql/schema.sql
+      #data-location: classpath:sql/data.sql
       mode: never
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect  # Make sure to use MySQLDialect
-    show-sql: true   # Set to true to log SQL queries in the console (for debugging)
+    database-platform: org.hibernate.dialect.MySQLDialect  # Make sure to use MySQLDialect    show-sql: false
     hibernate:
-      ddl-auto: update    # Can be 'none', 'update', 'create', 'create-drop', etc.
+      ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
-        use_sql_comments: true
+        format_sql: false
+        use_sql_comments: false
+
   logging:
     level:
-      root: INFO
-      org.springframework: DEBUG
+      root: ERROR
+      org.springframework: ERROR

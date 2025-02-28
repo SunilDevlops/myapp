@@ -7,12 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice // Use @RestControllerAdvice to handle exceptions globally in REST controllers
 public class MyAppGlobalExceptionHandling {
@@ -85,6 +92,24 @@ public class MyAppGlobalExceptionHandling {
         return new ResponseEntity<>(ResponseMessage.generateResponse(errorResponse), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    // This method will handle MethodArgumentNotValidException
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ResponseMessage> handleMethodArgumentNotValidException(
+            MethodArgumentNotValidException ex) {
+
+        // Get the list of validation errors
+        BindingResult bindingResult = ex.getBindingResult();
+        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+
+        // Map the FieldErrors to a list of error messages
+        List<String> errorMessages = fieldErrors.stream()
+                .map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
+                .collect(Collectors.toList());
+
+        // Create and return a response containing the error messages
+        ErrorResponse errorResponse = new ErrorResponse("Validation failed : "+errorMessages,null,  HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ResponseMessage.generateResponse(errorResponse), HttpStatus.BAD_REQUEST);
+    }
     private String processErrorMessage(String errorMessage) {
         if (errorMessage == null || errorMessage.isEmpty()) {
             return "Unknown database error occurred.";

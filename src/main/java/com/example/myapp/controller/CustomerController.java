@@ -15,6 +15,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Optional;
 
@@ -115,5 +117,11 @@ public class CustomerController {
                             null, HttpStatus.OK);
                     return new ResponseEntity<>(ResponseMessage.generateResponse(successResponse), HttpStatus.OK);
                 }).orElseThrow(() -> new CustomerNotFoundException("Customer not found with id " + id));
+    }
+
+    @GetMapping("/api/getPodDetails")
+    public String sayHello() throws UnknownHostException {
+        String podName = System.getenv("HOSTNAME");  // Get the pod name
+        return "Hello from pod: " + podName;
     }
 }

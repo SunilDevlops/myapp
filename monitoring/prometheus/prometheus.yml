@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s  # Scrape metrics every 15 seconds
+
+scrape_configs:
+  - job_name: 'spring-boot-app'
+    static_configs:
+      - targets: ['app:8081']  # Use the service name from Docker Compose
+        labels:
+          application: 'My Spring Boot Application'
+    metrics_path: '/actuator/prometheus'  # This is the endpoint exposed by Spring Boot
