@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile  # If you're building the app image here
     ports:
-      - "8081:8081"         # Expose the Spring Boot app
+      - "8080:8080"         # Expose the Spring Boot app
     environment:
       - SPRING_PROFILES_ACTIVE=dev
     networks:
