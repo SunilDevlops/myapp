@@ -13,7 +13,7 @@ RUN apt-get update && \
 COPY target/myapp-1.0.jar /app/myapp-1.0.jar
 
 # Expose the port your Spring Boot app runs on
-EXPOSE 8081
+EXPOSE 8080
 
 # Command to run the Spring Boot app
 ENTRYPOINT ["java", "-jar", "/app/myapp-1.0.jar"]
