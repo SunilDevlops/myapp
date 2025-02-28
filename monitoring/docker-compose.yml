@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  # Spring Boot Application
+  app:
+    image: sunilthedevops/my-springboot-curd-app:latest   # Use your Spring Boot app image
+    build:
+      context: .
+      dockerfile: Dockerfile  # If you're building the app image here
+    ports:
+      - "8081:8081"         # Expose the Spring Boot app
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - monitoring
+
+  # Prometheus Service
+  prometheus:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
+    restart: unless-stopped
+
+  # Grafana Service
+  grafana:
+    image: grafana/grafana:9.5.2
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Set Grafana admin password
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+networks:
+  monitoring:
+    driver: bridge
