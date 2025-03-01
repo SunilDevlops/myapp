@@ -2,16 +2,16 @@
 spring:
   config:
     activate:
-      on-profile: prod
+      on-profile: ${SPRING_PROFILES_ACTIVE}
   datasource:
-    url: jdbc:mysql://localhost:3306/library_db
-    driverClassName: com.mysql.cj.jdbc.Driver
-    username: root
-    password: pass
+    url: ${SPRING_DATASOURCE_URL}
+    driverClassName: ${SPRING_DATASOURCE_DRIVER}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     # Optionally configure connection pooling (HikariCP is default in Spring Boot)
     hikari:
-      maximum-pool-size: 10  # Maximum number of connections in the pool
-      minimum-idle: 5        # Minimum number of idle connections
+      maximum-pool-size: ${HIKARI_MAX_POOL_SIZE}  # Maximum number of connections in the pool
+      minimum-idle: ${HIKARI_MIN_IDLE_CONN}        # Minimum number of idle connections
       pool-name: HikariCP     # Optional name for your connection pool
   sql:
     init:
@@ -21,14 +21,13 @@ spring:
   jpa:
     #database-platform: org.hibernate.dialect.MySQLDialect  # Make sure to use MySQLDialect    show-sql: false
     hibernate:
-      dialect: org.hibernate.dialect.MySQLDialect
+      dialect: ${SPRING_DATASOURCE_DIALECT}
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: false
-        use_sql_comments: false
-
+        format_sql: ${SQL_FLAG}
+        use_sql_comments: ${SQL_FLAG}
   logging:
     level:
-      root: ERROR
-      org.springframework: ERROR
+      root: ${LOG_LEVEL}
+      org.springframework: ${LOG_LEVEL}
