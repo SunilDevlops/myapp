@@ -6603,3 +6603,228 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2025-03-02 11:55:20 - Calling getAllCustomers....
 2025-03-02 11:55:20 - Customers are found of totalsize - 16
 2025-03-02 11:55:20 - Sending list of customers as part of the responseData
+2025-03-02 12:00:54 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 12:00:54 - HikariCP - Shutdown initiated...
+2025-03-02 12:00:54 - HikariCP - Shutdown completed.
+2025-03-02 12:01:11 - Starting MyappApplicationTests using Java 17.0.4.1 with PID 19648 (started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 12:01:11 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 12:01:11 - The following 1 profile is active: "test"
+2025-03-02 12:01:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 12:01:12 - Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2025-03-02 12:01:12 - HikariPool-1 - Starting...
+2025-03-02 12:01:12 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-03-02 12:01:12 - HikariPool-1 - Start completed.
+2025-03-02 12:01:13 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 12:01:13 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 12:01:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 12:01:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 12:01:14 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 12:01:15 - Exposing 14 endpoints beneath base path '/actuator'
+2025-03-02 12:01:16 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-03-02 12:01:16 - Filter 'requestFilter' configured for use
+2025-03-02 12:01:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:16 - Initializing Servlet ''
+2025-03-02 12:01:16 - Completed initialization in 1 ms
+2025-03-02 12:01:16 - Started MyappApplicationTests in 5.87 seconds (process running for 9.126)
+2025-03-02 12:01:17 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:17 - Request is being handled by pod: null
+2025-03-02 12:01:17 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:17 - requestId : f9e2c6ea-cb65-4037-be5e-ded39b0a0ba4
+2025-03-02 12:01:17 - requestUrl : /api/customers/6
+2025-03-02 12:01:17 - activeProfile : test
+2025-03-02 12:01:17 - Calling getCustomerById....
+2025-03-02 12:01:17 - Customer retrieved successfully with id 6
+2025-03-02 12:01:17 - Got customer resposne for id :6
+2025-03-02 12:01:17 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:17 - Request is being handled by pod: null
+2025-03-02 12:01:17 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:17 - requestId : 972865df-2b85-4d02-97ee-7c65abf0ffa5
+2025-03-02 12:01:17 - requestUrl : /api/customers/9999
+2025-03-02 12:01:17 - activeProfile : test
+2025-03-02 12:01:17 - Calling getCustomerById....
+2025-03-02 12:01:17 - Customer not found with id 9999
+2025-03-02 12:01:17 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:17 - Request is being handled by pod: null
+2025-03-02 12:01:17 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:17 - requestId : bf5da67f-dc9a-4d4d-adaa-06aadc179dbf
+2025-03-02 12:01:17 - requestUrl : /api/customers
+2025-03-02 12:01:17 - activeProfile : test
+2025-03-02 12:01:17 - Calling getAllCustomers....
+2025-03-02 12:01:18 - Customers are found of totalsize - 7
+2025-03-02 12:01:18 - Sending list of customers as part of the responseData
+2025-03-02 12:01:18 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:18 - Request is being handled by pod: null
+2025-03-02 12:01:18 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:18 - requestId : 5442aa77-3e07-4888-b59f-54566b6ac38f
+2025-03-02 12:01:18 - requestUrl : /api/customers
+2025-03-02 12:01:18 - activeProfile : test
+2025-03-02 12:01:18 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:18 - Request is being handled by pod: null
+2025-03-02 12:01:18 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:18 - requestId : 2ac5204a-6af7-4850-850e-27094bcfbfeb
+2025-03-02 12:01:18 - requestUrl : /api/customers/1
+2025-03-02 12:01:18 - activeProfile : test
+2025-03-02 12:01:18 - Calling updateCustomer....
+2025-03-02 12:01:18 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 12:01:18 - Going to update customer
+2025-03-02 12:01:18 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 12:01:18 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 12:01:18 - Customer updated successfully with id 1
+2025-03-02 12:01:18 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:18 - Request is being handled by pod: null
+2025-03-02 12:01:18 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:18 - requestId : ecf9d7f7-4cb9-4171-a737-5d043c6766e8
+2025-03-02 12:01:18 - requestUrl : /api/customers
+2025-03-02 12:01:18 - activeProfile : test
+2025-03-02 12:01:18 - Calling createCustomer....
+2025-03-02 12:01:18 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 12:01:18 - Going to creating customer
+2025-03-02 12:01:18 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 12:01:18 - Customer created successfully with id 8
+2025-03-02 12:01:18 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:01:18 - Request is being handled by pod: null
+2025-03-02 12:01:18 - Inside request filter - doFilterInternal method
+2025-03-02 12:01:18 - requestId : 916a003b-ea36-41cb-8315-b64bb5af7b0a
+2025-03-02 12:01:18 - requestUrl : /api/customers/1
+2025-03-02 12:01:18 - activeProfile : test
+2025-03-02 12:01:18 - Calling deleteCustomerById....
+2025-03-02 12:01:18 - Customer retrieved successfully with id 1
+2025-03-02 12:01:18 - Customer retrieved successfully with id 1
+2025-03-02 12:01:18 - Customer deleted successfully with id 1
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 1 ms
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Could not update. Customer not found for id null
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:01:19 - Initializing Servlet ''
+2025-03-02 12:01:19 - Completed initialization in 0 ms
+2025-03-02 12:01:19 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 12:01:19 - HikariPool-1 - Shutdown initiated...
+2025-03-02 12:01:19 - HikariPool-1 - Shutdown completed.
+2025-03-02 12:07:32 - Starting MyappApplicationTests using Java 17.0.4.1 with PID 20988 (started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 12:07:32 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 12:07:32 - The following 1 profile is active: "test"
+2025-03-02 12:07:33 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 12:07:33 - Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
+2025-03-02 12:07:34 - HikariPool-1 - Starting...
+2025-03-02 12:07:34 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-03-02 12:07:34 - HikariPool-1 - Start completed.
+2025-03-02 12:07:34 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 12:07:34 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 12:07:35 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 12:07:36 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 12:07:36 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 12:07:37 - Exposing 14 endpoints beneath base path '/actuator'
+2025-03-02 12:07:37 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-03-02 12:07:37 - Filter 'requestFilter' configured for use
+2025-03-02 12:07:37 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:37 - Initializing Servlet ''
+2025-03-02 12:07:37 - Completed initialization in 0 ms
+2025-03-02 12:07:37 - Started MyappApplicationTests in 5.697 seconds (process running for 8.566)
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : 9ea25a48-62d9-42d4-9b47-2ee0d8d59d8c
+2025-03-02 12:07:38 - requestUrl : /api/customers/6
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling getCustomerById....
+2025-03-02 12:07:38 - Customer retrieved successfully with id 6
+2025-03-02 12:07:38 - Got customer resposne for id :6
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : 99930287-a0b8-4c6a-b6f9-bc452d17608c
+2025-03-02 12:07:38 - requestUrl : /api/customers/9999
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling getCustomerById....
+2025-03-02 12:07:38 - Customer not found with id 9999
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : a53b4584-5626-4640-ad74-2b6f1dd36251
+2025-03-02 12:07:38 - requestUrl : /api/customers
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling getAllCustomers....
+2025-03-02 12:07:38 - Customers are found of totalsize - 7
+2025-03-02 12:07:38 - Sending list of customers as part of the responseData
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : 7a5b585b-e686-4b56-b74f-e929e8d5b487
+2025-03-02 12:07:38 - requestUrl : /api/customers
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : 8f2004e9-e4dd-4b96-b761-40101873942f
+2025-03-02 12:07:38 - requestUrl : /api/customers/1
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling updateCustomer....
+2025-03-02 12:07:38 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 12:07:38 - Going to update customer
+2025-03-02 12:07:38 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 12:07:38 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 12:07:38 - Customer updated successfully with id 1
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : e16632c6-4348-4ce0-9030-8dfa35060f89
+2025-03-02 12:07:38 - requestUrl : /api/customers
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling createCustomer....
+2025-03-02 12:07:38 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 12:07:38 - Going to creating customer
+2025-03-02 12:07:38 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 12:07:38 - Customer created successfully with id 8
+2025-03-02 12:07:38 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 12:07:38 - Request is being handled by pod: null
+2025-03-02 12:07:38 - Inside request filter - doFilterInternal method
+2025-03-02 12:07:38 - requestId : 16723ad8-d94b-4b0d-8939-2393a7afcfe4
+2025-03-02 12:07:38 - requestUrl : /api/customers/1
+2025-03-02 12:07:38 - activeProfile : test
+2025-03-02 12:07:38 - Calling deleteCustomerById....
+2025-03-02 12:07:38 - Customer retrieved successfully with id 1
+2025-03-02 12:07:38 - Customer retrieved successfully with id 1
+2025-03-02 12:07:38 - Customer deleted successfully with id 1
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Could not update. Customer not found for id null
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 12:07:39 - Initializing Servlet ''
+2025-03-02 12:07:39 - Completed initialization in 0 ms
+2025-03-02 12:07:39 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 12:07:39 - HikariPool-1 - Shutdown initiated...
+2025-03-02 12:07:39 - HikariPool-1 - Shutdown completed.
