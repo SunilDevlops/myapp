@@ -151,8 +151,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
   java -jar target\myapp-1.0.jar
   ```
-### Test the application
----
+* Test the application
 ```
 # Retrieve all Customers
 curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers
@@ -403,6 +402,50 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    > this need to be run in one terminal and in other terminal you can do the curl request or hit the application from postman
    <p align="center">
       <img src="./assets/minikube_springboot_run.png" width="650">
+   </p>
+   
+ * Test the application
+   > **Note**
+   > the port number that we will be using will be the external port mentioned in the above screenshot
+   
+   ```
+   # Retrieve all Customers
+   curl.exe -u prod:prodPassword --location http://127.0.0.1:53920/api/customers
+   ```
+   <p align="center">
+      <img src="./assets/prod_getAllCustomers.png" width="650">
+   </p>
+   
+   ```
+   # Retrieve an Customer by ID
+   curl.exe -u prod:prodPassword --location http://127.0.0.1:53920/api/customers/1
+   ```
+   <p align="center">
+      <img src="./assets/prod_getCustomerById.png" width="650">
+   </p>
+      
+   ```
+   # Create a new Customer
+   curl.exe -u prod:prodPassword -X POST -H "Content-Type: application/json" -d  "{\"firstName\":\"Lisa\", \"lastName\":\"Ann\", \"emailAddress\":\"lisa.ann298@example.com\", \"phoneNumber\":\"+1 813-453-7234\"}" --location http://127.0.0.1:53920/api/customers
+   ```
+   <p align="center">
+      <img src="./assets/prod_createCustomer.png" width="650">
+   </p>
+      
+   ```
+   # Update an existing Customer
+   curl.exe -u prod:prodPassword -X PUT -H "Content-Type: application/json" -d  "{ \"phoneNumber\":\"+1 813-453-1234\"}" --location    http://127.0.0.1:53920/api/customers/2
+   ```
+   <p align="center">
+      <img src="./assets/prod_updateCustomer.png" width="650">
+   </p>
+      
+   ```
+   # Delete an Customer
+   curl.exe -u prod:prodPassword -X DELETE --location http://127.0.0.1:53920/api/customers/6
+   ```
+   <p align="center">
+      <img src="./assets/prod_deleteCustomer.png" width="650">
    </p>
    
 ##### Some basic commands of kubectl
