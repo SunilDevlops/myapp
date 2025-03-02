@@ -186,7 +186,35 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
       > This CRUD Spring Boot application will connect to external MYSQL database running in mysql Container in docker
     - Verify the health of the application
  ### Run the Spring Boot CRUD application in Dockerized Environment
-   
+ ---
+ * To run the application
+ ```
+ docker-compose up
+ ```
+ * docker network gets created under which we have app-1, mysql-db, prometheus, grafana containers which are attached to each other
+   <p align="center">
+      <img src="./assets/dockerNetwork.png" width="650">
+   </p>
+ * Some basic commands that we can run -
+   ```
+   # To check Running Containers
+   docker ps
+   <p align="center">
+      <img src="./assets/docker_listOfContainer.png" width="650">
+   </p>
+
+   # View Container logs
+   docker logs <container_name_or_id>
+   <p align="center">
+      <img src="./assets/docker_logsForSpecificContainer.png" width="650">
+   </p>
+
+   # To access the Container's shell
+   docker_accessTheContainerShell.png
+   <p align="center">
+      <img src="./assets/docker_logsForSpecificContainer.png" width="650">
+   </p>
+   ```
     
 
 
