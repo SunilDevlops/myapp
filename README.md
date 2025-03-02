@@ -219,9 +219,47 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    <p align="center">
       <img src="./assets/docker_accessTheContainerShell.png" width="650">
    </p>
+   
+ * To Test the application
    ```
-    
-
+   # Retrieve all Customers
+   curl.exe -u uat3:uat3Password --location http://127.0.0.1:8080/api/customers
+   ```
+   <p align="center">
+      <img src="./assets/docker_getAllCustomers.png" width="650">
+   </p>
+   
+   ```
+   # Retrieve an Customer by ID
+   curl.exe -u uat3:uat3Password --location http://127.0.0.1:8080/api/customers/16
+   ```
+   <p align="center">
+      <img src="./assets/docker_getAllCustomers.png" width="650">
+   </p>
+      
+   ```
+   # Create a new Customer
+   curl.exe -u uat3:uat3Password -X POST -H "Content-Type: application/json" -d  "{\"firstName\":\"Lisa\", \"lastName\":\"Ann\", \"emailAddress\":\"lisa.ann298@example.com\", \"phoneNumber\":\"+1 813-453-7234\"}" --location http://127.0.0.1:8080/api/customers
+   ```
+   <p align="center">
+      <img src="./assets/docker_getAllCustomers.png" width="650">
+   </p>
+      
+   ```
+   # Update an existing Customer
+   curl.exe -u uat3:uat3Password -X PUT -H "Content-Type: application/json" -d  "{ \"phoneNumber\":\"+1 813-453-1234\"}" --location    http://127.0.0.1:8080/api/customers/15
+   ```
+   <p align="center">
+      <img src="./assets/docker_getAllCustomers.png" width="650">
+   </p>
+      
+   ```
+   # Delete an Customer
+   curl.exe -u uat3:uat3Password -X DELETE --location http://127.0.0.1:8080/api/customers/21
+   ```
+   <p align="center">
+      <img src="./assets/docker_getAllCustomers.png" width="650">
+   </p>
 
   
 
