@@ -29,6 +29,7 @@ public class ProjectConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()) //disables CSRF protection, common in stateless Rest APIs
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/actuator/prometheus").permitAll()
                         .anyRequest().authenticated()) //ensure all requests are authenticated
                 .httpBasic(Customizer.withDefaults()) //enables HTTP Basic Authentication with default settings
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
