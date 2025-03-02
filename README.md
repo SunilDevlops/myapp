@@ -320,18 +320,19 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
  ```
  minikube start --driver=docker
  ```
-   <p align="left">
-      <img src="./assets/minikube_start.png" width="400">
+   <p align="center">
+      <img src="./assets/minikube_start.png" width="650">
    </p>
-   <p align="right">
-      <img src="./assets/minikube_docker.png" width="400">
+   <p align="center">
+      <img src="./assets/minikube_docker.png" width="650">
    </p>
+   
  * To check the status of Minikube
  ```
  minikube status
  ```
-   <p align="left">
-      <img src="./assets/minikube_status.png" width="400">
+   <p align="center">
+      <img src="./assets/minikube_status.png" width="650">
    </p>
    
  * To check that the Docker containers for the Kubernetes cluster are running
