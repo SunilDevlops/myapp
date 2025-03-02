@@ -43,7 +43,7 @@
     
   1. Download Minikube Installer from [See here] (https://github.com/kubernetes/minikube/releases)
   2. Run the **.exe** installer by following the installer prompts
-  3. Add Minikube to the PATH. The installer should automatically add Minikube to your system PATH. If not, manually add the       path to the folder where Minikube is installed (e.g., C:\Program Files\Kubernetes\Minikube).
+  3. Add Minikube to the PATH. The installer should automatically add Minikube to your system PATH. If not, manually add the path to the folder where Minikube is installed (e.g., C:\Program Files\Kubernetes\Minikube).
   4. Test that minikube works:
       ```
       minikube version
@@ -135,7 +135,11 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
 ### Run the application Locally which is DEV environment
 ---
-* Once the project is built, run Spring boot application locally using the following Maven command. By default profile selected is **dev** environment
+* Once the project is build, make sure to have the mysql container up and running in docker desktop that must be created as a part of Prerequisities step[Check Need docker-compose file for creating mysql container named **library**](#Prerequisities-needed)
+  <p align="center">
+      <img src="./assets/docker_mySQLContainer" width="650">
+  </p>
+* Run Spring boot application locally using the following Maven command. By default profile selected is **dev** environment
   ```
   mvn spring-boot:run
   ```
@@ -148,6 +152,45 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   java -jar target\myapp-1.0.jar
   ```
 ### Test the application
+```
+# Retrieve all Customers
+curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers
+```
+<p align="center">
+  <img src="./assets/docker_getAllCustomers.png" width="650">
+</p>
+
+```
+# Retrieve an Customer by ID
+curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers/16
+```
+<p align="center">
+  <img src="./assets/docker_getAllCustomers.png" width="650">
+</p>
+  
+```
+# Create a new Customer
+curl.exe -u dev:devPassword -X POST -H "Content-Type: application/json" -d  "{\"firstName\":\"Lisa\", \"lastName\":\"Ann\", \"emailAddress\":\"lisa.ann298@example.com\", \"phoneNumber\":\"+1 813-453-7234\"}" --location http://127.0.0.1:8080/api/customers
+```
+<p align="center">
+  <img src="./assets/docker_getAllCustomers.png" width="650">
+</p>
+  
+```
+# Update an existing Customer
+curl.exe -u dev:devPassword -X PUT -H "Content-Type: application/json" -d  "{ \"phoneNumber\":\"+1 813-453-1234\"}" --location    http://127.0.0.1:8080/api/customers/15
+```
+<p align="center">
+  <img src="./assets/docker_getAllCustomers.png" width="650">
+</p>
+  
+```
+# Delete an Customer
+curl.exe -u dev:devPassword -X DELETE --location http://127.0.0.1:8080/api/customers/21
+```
+<p align="center">
+  <img src="./assets/docker_getAllCustomers.png" width="650">
+</p>
 
 ### Test the application with unit and integration testing
 ---
@@ -163,7 +206,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
   mvn -Dtest=CustomerControllerTest#testGetCustomerById test
   ```
-* Run both unit and integration testing. We are using **Test** profile which is our **TEST** environment. It takes the username and password to authenticate from [application-test.yaml](src/main/resources/application-test.yaml)
+* Run both unit and integration testing. For integration testing, we are using **Test** profile which is our **TEST** environment. It takes the username and password to authenticate from [application-test.yaml](src/main/resources/application-test.yaml)
   ```
   mvn test
   ```
