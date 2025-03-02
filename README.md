@@ -231,9 +231,12 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
       > **Note**
       > This CRUD Spring Boot application will connect to external MYSQL database running in mysql Container in docker
     - Verify the health of the application
+      
  ### Run the Spring Boot CRUD application in Dockerized Environment  -- UAT3 Environment
  ---
- * To Start the Docker containers, networks, and volumes associated with a docker-compose project using [docker_compose.yml](docker/docker-compose.yml)
+ * Stop the mysql container that is running in docker desktop as part of Prerequisities step [Need docker-compose file for creating mysql container named **library**](#Prerequisities-needed). Otherwise, there will be port conflict of 3306.
+ * Stop the Spring Boot CRUD application which is running locally in port 8080. Otherwise, there will be a port conflict of 8080.
+ * Now, start the Docker containers, networks, and volumes associated with a docker-compose project using [docker_compose.yml](docker/docker-compose.yml)
  ```
  docker-compose up
  ```
@@ -311,7 +314,68 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
  ```
  docker-compose down -v
  ```
+ ### Run the Spring Boot CRUD application in Dockerized Environment  -- PROD Environment
+ ---
+ * To start Minikube using the Docker driver
+ ```
+ minikube start --driver=docker
+ ```
+   <p align="left">
+      <img src="./assets/minikube_start.png" width="400">
+   </p>
+   <p align="right">
+      <img src="./assets/minikube_docker.png" width="400">
+   </p>
+ * To check the status of Minikube
+ ```
+ minikube status
+ ```
+   <p align="left">
+      <img src="./assets/minikube_status.png" width="400">
+   </p>
+   
+ * To check that the Docker containers for the Kubernetes cluster are running
+ ```
+ docker ps
+ ```
 
+ * To verify docker configuration
+ ```
+ docker info
+ ```
+
+ * Create a configmap yaml file [See here](kubernetes/configMap.yaml). This ConfigMap stores the database URL and some other Spring Boot-related settings.
+ * Apply the configmap
+   ```
+   kubectl apply -f configmap.yaml
+   ```
+ * Create a secret yaml file [See here](kubernetes/secret.yaml). The secret is storing sensitive information, such as db username and password.
+ * Apply the secret
+   ```
+   kubectl apply -f secret.yaml
+   ```
+   
+ * To start MySQL Container on Minikube using configmap.yaml and secret.yaml and expose it through a service
+   - Use mysql-deployment.yaml [See here](kubernetes/mysql-deployment.yaml)
+     ```
+     kubectl apply -f mysql-deployment.yaml
+     ```
+   - Use mysql-service.yaml [See here](kubernetes/mysql-service.yaml)
+     ```
+     kubectl apply -f mysql-service.yaml
+     ```
+     
+ * To start the Spring Boot CRUD application on Minikube using configmap.xml and secret.xml by fetching the image from docker hub
+    - Use spring-boot-deployment.yaml [See here](kubernetes/spring-boot-deployment.yaml)
+     ```
+     kubectl apply -f spring-boot-deployment.yaml
+     ```
+   - Use spring-boot-service.yaml [See here](kubernetes/spring-boot-service.yaml)
+     ```
+     kubectl apply -f spring-boot-service.yaml
+     ```
+   
+ 
 
 
 
