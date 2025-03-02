@@ -71,5 +71,5 @@ volumes:
   mysql_data:
     driver: local
 networks:
-  monitoring:
+  myapp-network:
     driver: bridge
