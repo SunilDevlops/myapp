@@ -21,7 +21,7 @@
 * Create Docker Hub credentials to access Docker images and repositories  
 * Need docker-compose file for creating mysql container named **library**
   > **Note**
-  > Saved in Project path : [docker-compose.yml] (monitoring/mysqlContainer/docker-compose.yml)
+  > Saved in Project path : [docker-compose.yml](monitoring/mysqlContainer/docker-compose.yml)
   ##### Run the docker-compose command to startup the mysql container
   ```
   docker-compose up -d
