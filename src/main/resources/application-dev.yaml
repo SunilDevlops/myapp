@@ -3,6 +3,10 @@ spring:
   config:
     activate:
       on-profile: dev
+  security:
+    user:
+      name: dev
+      password: devPassword
   datasource:
     url: jdbc:mysql://localhost:3306/library_db
     driverClassName: com.mysql.cj.jdbc.Driver

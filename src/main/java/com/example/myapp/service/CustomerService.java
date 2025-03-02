@@ -73,5 +73,6 @@ public class CustomerService {
     @Transactional
     public void deleteCustomerById(Long id) {
         customerRepository.deleteById(id);
+
     }
 }

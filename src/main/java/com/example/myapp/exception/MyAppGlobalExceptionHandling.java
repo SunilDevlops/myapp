@@ -2,6 +2,7 @@ package com.example.myapp.exception;
 
 import com.example.myapp.exception.custom.*;
 import com.example.myapp.exception.custom.model.ErrorResponse;
+import com.example.myapp.exception.custom.model.SuccessResponse;
 import com.example.myapp.response.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -24,10 +25,16 @@ import java.util.stream.Collectors;
 @RestControllerAdvice // Use @RestControllerAdvice to handle exceptions globally in REST controllers
 public class MyAppGlobalExceptionHandling {
 
-    @ExceptionHandler(CustomerNotFoundException.class)
+/*    @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<ResponseMessage> handleCustomerNotFoundException(CustomerNotFoundException ex) {
         ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(),null,  HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(ResponseMessage.generateResponse(errorResponse), HttpStatus.NOT_FOUND);
+    }*/
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<ResponseMessage> handleCustomerNotFoundException(CustomerNotFoundException ex) {
+        ResponseMessage responseMessage = ResponseMessage.generateResponse(new SuccessResponse(
+                ex.getMessage(), null, HttpStatus.NOT_FOUND));
+        return new ResponseEntity<>(responseMessage, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(CustomersNotFoundException.class)

@@ -5,10 +5,13 @@ import com.example.myapp.repository.CustomerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -16,6 +19,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class MyappApplicationTests {
+
+	@Value("${spring.security.user.name}")
+	private String username;
+
+	@Value("${spring.security.user.password}")
+	private String password;
+
 	@Autowired
 	private MockMvc mockMvc;
 
@@ -28,7 +38,7 @@ class MyappApplicationTests {
 	@Test
 	public void testGetAllCustomers() throws Exception {
 		// Act and Assert
-		mockMvc.perform(get("/api/customers"))
+		mockMvc.perform(get("/api/customers").header("Authorization", "Basic " + encodeCredentials(username, password)))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.responseData.data", hasSize(7)))  // Assuming data.sql has one customer
 				.andExpect(jsonPath("$.responseData.data[6].firstName", is("John")))
@@ -38,7 +48,7 @@ class MyappApplicationTests {
 	@Test
 	public void testGetCustomerById() throws Exception {
 		// Act and Assert
-		mockMvc.perform(get("/api/customers/{id}", 6L))  // Assuming the customer ID in data.sql is 1
+		mockMvc.perform(get("/api/customers/{id}", 6L).header("Authorization", "Basic " + encodeCredentials(username, password)))  // Assuming the customer ID in data.sql is 1
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.responseData.data.firstName", is("Jane")))
 				.andExpect(jsonPath("$.responseData.data.lastName", is("Doe")));
@@ -55,7 +65,7 @@ class MyappApplicationTests {
 				.phoneNumber("+1 813-453-7234")
 				.build();
 		// Act and Assert
-		mockMvc.perform(post("/api/customers")
+		mockMvc.perform(post("/api/customers").header("Authorization", "Basic " + encodeCredentials(username, password))
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(newCustomerRequest)))
 				.andExpect(status().isCreated())
@@ -76,6 +86,7 @@ class MyappApplicationTests {
 
 		// Act and Assert
 		mockMvc.perform(put("/api/customers/{id}", 1L)  // Assuming the customer ID in data.sql is 1
+						.header("Authorization", "Basic " + encodeCredentials(username, password))
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(updatedCustomerRequest)))
 				.andExpect(status().isOk())
@@ -86,7 +97,8 @@ class MyappApplicationTests {
 	@Test
 	public void testDeleteCustomer() throws Exception {
 		// Act and Assert
-		mockMvc.perform(delete("/api/customers/{id}", 1L))  // Assuming the customer ID in data.sql is 1
+		mockMvc.perform(delete("/api/customers/{id}", 1L)
+						.header("Authorization", "Basic " + encodeCredentials(username, password)))  // Assuming the customer ID in data.sql is 1
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.responseData.message", is("Customer deleted successfully for id 1")));
 	}
@@ -94,7 +106,7 @@ class MyappApplicationTests {
 	@Test
 	public void testGetCustomerByIdNotFound() throws Exception {
 		// Act and Assert
-		mockMvc.perform(get("/api/customers/{id}", 9999L))  // Assuming 9999L doesn't exist
+		mockMvc.perform(get("/api/customers/{id}", 9999L).header("Authorization", "Basic " + encodeCredentials(username, password)))  // Assuming 9999L doesn't exist
 				.andExpect(status().isNotFound())
 				.andExpect(jsonPath("$.responseData.message", is("Customer not found with id 9999")));
 	}
@@ -112,9 +124,15 @@ class MyappApplicationTests {
 		// Act and Assert
 		mockMvc.perform(post("/api/customers")
 						.contentType("application/json")
-						.content(objectMapper.writeValueAsString(invalidCustomerRequest)))
+						.content(objectMapper.writeValueAsString(invalidCustomerRequest))
+						.header("Authorization", "Basic " + encodeCredentials(username, password))
+				)
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.responseData.message")
 						.value("Validation failed : [firstName: First name is required field]"));
+	}
+	private String encodeCredentials(String username, String password) {
+		String credentials = username + ":" + password;
+		return new String(java.util.Base64.getEncoder().encode(credentials.getBytes()));
 	}
 }

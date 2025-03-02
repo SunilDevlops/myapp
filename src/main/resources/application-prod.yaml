@@ -3,6 +3,10 @@ spring:
   config:
     activate:
       on-profile: ${SPRING_PROFILES_ACTIVE}
+  security:
+    user:
+      name: prod
+      password: prodPassword
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     driverClassName: ${SPRING_DATASOURCE_DRIVER}

@@ -43,7 +43,7 @@ public class CustomerController {
             // If no customers are found, return an error response
             throw new CustomersNotFoundException("No customers found");
         } else {
-            logger.info("Customers are found");
+            logger.info("Customers are found of totalsize - "+customers.size());
             // If customers are found, return a success response with the list of customers
             SuccessResponse successResponse = new SuccessResponse("Customers retrieved successfully", customers, HttpStatus.OK);
             logger.debug("Sending list of customers as part of the responseData");
