@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: library_db
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p", "pass"]
       interval: 10s
       retries: 5
       start_period: 30s
