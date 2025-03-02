@@ -375,6 +375,53 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
      ```
      kubectl apply -f spring-boot-service.yaml
      ```
+ * Copy a file from your local machine to a running mysql container in a Kubernetes pod
+    ```
+    kubectl cp init.sql mysql-deployment-5f88d6c7dd-wlscr:/init.sql    
+    ```
+   <p align="center">
+      <img src="./assets/kubectl_mysqlcopy.png" width="650">
+   </p>
+   
+ * To execute a MySQL initialization script inside a running MySQL container within a Kubernetes pod
+   ```
+   kubectl exec -it mysql-deployment-5f88d6c7dd-wlscr -- mysql -u root -p
+   ```
+   > **Note**
+   > password will ask in prompt - give **pass**
+   > Refer the below screenshot how to execute the **init.sql**
+   <p align="center">
+      <img src="./assets/kubectl_executemysqlinit.png" width="650">
+   </p>
+
+   
+##### Some basic commands of kubectl
+     
+ * To see the list of running pods
+   ```
+   kubectl get pods
+   ```
+   
+ * To see the services running in Kubernetes
+   ```
+   kubectl get services
+   ```
+   
+ * To see the deployments in your Kubernetes cluster
+   ```
+   kubectl get deployments
+   ```
+   
+ * Check the logs of a specific pod
+   ```
+   kubectl logs <pod-name>
+   ```
+   
+ * Check deployment events
+   ```
+   kubectl describe deployment <deployment-name>
+   ```
+
    
  
 
