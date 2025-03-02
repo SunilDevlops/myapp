@@ -6858,3 +6858,96 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2025-03-02 13:26:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-02 13:26:32 - HikariCP - Shutdown initiated...
 2025-03-02 13:26:32 - HikariCP - Shutdown completed.
+2025-03-02 13:26:51 - Starting MyappApplication using Java 17.0.4.1 with PID 24308 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 13:26:51 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 13:26:51 - The following 1 profile is active: "dev"
+2025-03-02 13:26:51 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 13:26:51 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 13:26:52 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 13:26:52 - Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
+2025-03-02 13:26:52 - Tomcat initialized with port 8080 (http)
+2025-03-02 13:26:52 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 13:26:52 - Starting service [Tomcat]
+2025-03-02 13:26:52 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 13:26:52 - Initializing Spring embedded WebApplicationContext
+2025-03-02 13:26:52 - Root WebApplicationContext: initialization completed in 1230 ms
+2025-03-02 13:26:53 - Filter 'requestFilter' configured for use
+2025-03-02 13:26:53 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 13:26:53 - HikariCP - Starting...
+2025-03-02 13:26:53 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@793cfe75
+2025-03-02 13:26:53 - HikariCP - Start completed.
+2025-03-02 13:26:53 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 13:26:54 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 13:26:54 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 13:26:54 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 13:26:54 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 13:26:55 - LiveReload server is running on port 35729
+2025-03-02 13:26:55 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 13:26:55 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 13:26:55 - Started MyappApplication in 3.869 seconds (process running for 4.132)
+2025-03-02 13:27:15 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-02 13:27:15 - Initializing Servlet 'dispatcherServlet'
+2025-03-02 13:27:15 - Completed initialization in 0 ms
+2025-03-02 13:27:16 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:27:16 - Request is being handled by pod: null
+2025-03-02 13:27:16 - Inside request filter - doFilterInternal method
+2025-03-02 13:27:16 - requestId : dbb5ab44-15e0-4534-b3db-7876a67a1cea
+2025-03-02 13:27:16 - requestUrl : /api/customers/1
+2025-03-02 13:27:16 - activeProfile : dev
+2025-03-02 13:27:16 - Calling getCustomerById....
+2025-03-02 13:27:16 - Customer not found with id 1
+2025-03-02 13:27:16 - Resolved [com.example.myapp.exception.custom.CustomerNotFoundException: Customer not found with id 1]
+2025-03-02 13:27:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:27:24 - Request is being handled by pod: null
+2025-03-02 13:27:24 - Inside request filter - doFilterInternal method
+2025-03-02 13:27:24 - requestId : 3fcec17d-024b-431b-a5a8-bbdaa53c747b
+2025-03-02 13:27:24 - requestUrl : /api/customers/1
+2025-03-02 13:27:24 - activeProfile : dev
+2025-03-02 13:27:24 - Calling getCustomerById....
+2025-03-02 13:27:24 - Customer not found with id 1
+2025-03-02 13:27:24 - Resolved [com.example.myapp.exception.custom.CustomerNotFoundException: Customer not found with id 1]
+2025-03-02 13:27:53 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:27:53 - Request is being handled by pod: null
+2025-03-02 13:27:53 - Inside request filter - doFilterInternal method
+2025-03-02 13:27:53 - requestId : e0d9149c-23c8-43dd-a60a-5446840ae453
+2025-03-02 13:27:53 - requestUrl : /api/customers
+2025-03-02 13:27:53 - activeProfile : dev
+2025-03-02 13:27:53 - Calling getAllCustomers....
+2025-03-02 13:27:54 - Customers are found of totalsize - 16
+2025-03-02 13:27:54 - Sending list of customers as part of the responseData
+2025-03-02 13:29:05 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:29:05 - Request is being handled by pod: null
+2025-03-02 13:29:05 - Inside request filter - doFilterInternal method
+2025-03-02 13:29:05 - requestId : e3148ef9-e1aa-40d0-8855-54b046777f2c
+2025-03-02 13:29:05 - requestUrl : /api/customers
+2025-03-02 13:29:05 - activeProfile : dev
+2025-03-02 13:29:06 - Calling createCustomer....
+2025-03-02 13:29:06 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 13:29:06 - Going to creating customer
+2025-03-02 13:29:06 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 13:29:06 - Customer created successfully with id 27
+2025-03-02 13:29:41 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:29:41 - Request is being handled by pod: null
+2025-03-02 13:29:41 - Inside request filter - doFilterInternal method
+2025-03-02 13:29:41 - requestId : 5a891082-605c-4cfd-a74e-ee99722996de
+2025-03-02 13:29:41 - requestUrl : /api/customers/15
+2025-03-02 13:29:41 - activeProfile : dev
+2025-03-02 13:29:41 - Calling updateCustomer....
+2025-03-02 13:29:41 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 13:29:41 - Going to update customer
+2025-03-02 13:29:41 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 13:29:41 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 13:29:41 - Customer updated successfully with id 15
+2025-03-02 13:30:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 13:30:15 - Request is being handled by pod: null
+2025-03-02 13:30:15 - Inside request filter - doFilterInternal method
+2025-03-02 13:30:15 - requestId : c918afd3-81b5-4978-859b-9b3505ecd661
+2025-03-02 13:30:15 - requestUrl : /api/customers/19
+2025-03-02 13:30:15 - activeProfile : dev
+2025-03-02 13:30:15 - Calling deleteCustomerById....
+2025-03-02 13:30:15 - Customer retrieved successfully with id 19
+2025-03-02 13:30:15 - Customer retrieved successfully with id 19
+2025-03-02 13:30:15 - Customer deleted successfully with id 19
+2025-03-02 13:48:20 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 13:48:20 - HikariCP - Shutdown initiated...
+2025-03-02 13:48:20 - HikariCP - Shutdown completed.
