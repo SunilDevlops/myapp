@@ -125,7 +125,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
 ### Project Structure
 ---
 <p align="center">
-  <img src="./assets/projectstructure.png" width="650">
+  <img src="./assets/projectstructure_1.png" width="650">
 </p>
 
 ### Build the application without Running Tests
