@@ -19,7 +19,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Mount the init.sql script
       - mysql_data:/var/lib/mysql  # Ensure data persistence
     networks:
-      - monitoring
+      - myapp-network
   # Spring Boot Application
   app:
     image: sunilthedevops/my-springboot-curd-app:latest   # Use your Spring Boot app image
@@ -34,7 +34,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: pass  # MySQL password
       SPRING_PROFILES_ACTIVE: uat3
     networks:
-      - monitoring
+      - myapp-network
     depends_on:
       mysql:
         condition: service_healthy  # Wait for MySQL to be healthy before starting Spring Boot
@@ -49,7 +49,7 @@ services:
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
-      - monitoring
+      - myapp-network
     restart: unless-stopped
 
   # Grafana Service
@@ -63,7 +63,7 @@ services:
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
     networks:
-      - monitoring
+      - myapp-network
     depends_on:
       - prometheus
     restart: unless-stopped

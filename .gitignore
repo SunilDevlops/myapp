@@ -39,5 +39,3 @@ build/
 .mvn/
 mvnw
 mvnw.cmd
-
-/logs/
