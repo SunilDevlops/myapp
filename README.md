@@ -148,6 +148,8 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   java -jar target\myapp-1.0.jar
   ```
 ### Test the application
+
+### Test the application with unit and integration testing
 ---
 * Run the unit testing
   ```
@@ -161,7 +163,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
   mvn -Dtest=CustomerControllerTest#testGetCustomerById test
   ```
-* Run both unit and integration testing. For integrating testing we are using **Test** profile which is **TEST** environment
+* Run both unit and integration testing. We are using **Test** profile which is our **TEST** environment. It takes the username and password to authenticate from [application-test.yaml](src/main/resources/application-test.yaml)
   ```
   mvn test
   ```
