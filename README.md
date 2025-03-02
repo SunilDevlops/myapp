@@ -1,4 +1,58 @@
-# Spring Boot CRUD Application
+## Prerequisities needed
+* JDK 17
+* Apache Maven 3.9.9
+* Setup the GitHub account
+* Install Git Bash
+* IntelliJ IDE 2023.1.2
+    <details><summary><b>Show instructions</b></summary>
+
+  1. To install latest version of IntelliJ. Go to the official IntelliJ IDEA download page [See here] (https://www.jetbrains.com/idea/download/)
+ 
+  2. Choose the **Community edition**
+  </details>
+* Docker Desktop - 27.3.1
+  <details><summary><b>Show instructions</b></summary>
+    
+  1. Download Docker Desktop [See here] (https://www.docker.com/products/docker-desktop)
+ 
+  2. After downloading run the **.exe** installer
+  3. Once the installation is finished. Docker Desktop will start automatically. If it doesn't, you can manually start it by searching for Docker Desktop in the Start menu and running it.
+  </details>
+* Create Docker Hub credentials to access Docker images and repositories  
+* Need docker-compose file for creating mysql container named **library**
+  > **Note**
+  > Saved in Project path : monitoring/mysqlContainer/docker-compose.yml)
+  ##### Run the docker-compose command to startup the mysql container
+  ```
+  docker-compose up -d
+  ```
+* kubectl client v1.32.0
+  <details><summary><b>Show instructions</b></summary>
+    
+  1. To install kubectl on Window using Git Bash
+     ```
+     curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe
+     ```
+  2. Run the kubectl version to verify
+     ```
+     kubectl version
+     ```
+  </details>
+* Minikube - v1.35.0
+  <details><summary><b>Show instructions</b></summary>
+    
+  1. Download Minikube Installer from [See here] (https://github.com/kubernetes/minikube/releases)
+  2. Run the **.exe** installer by following the installer prompts
+  3. Add Minikube to the PATH. The installer should automatically add Minikube to your system PATH. If not, manually add the       path to the folder where Minikube is installed (e.g., C:\Program Files\Kubernetes\Minikube).
+  4. Test that minikube works:
+      ```
+      minikube version
+      ```
+  </details>
+
+
+### Spring Boot CRUD Application
+---
 To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application involves several steps:
 * Create Spring Boot project using **Spring Initializer** (https://start.spring.io/)
 * Add dependencies
@@ -37,7 +91,8 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   - **PUT /api/customers/{id}**: Update an existing Customer
   - **DELETE /api/customers/{id}**: Delete an Customer
 
-# Feature that are implemented in this application
+### Feature that are implemented in this application
+---
 * Implemented **Versioning** concept to track changes made to Customer entity
 * Used **@embedded** and **@embeddable** concept to make PhoneNumber as composite dataType
 * Used **Mapper** - CustomerMapper interface for converting between different object types (CustomerRequest to Customer and Customer to CustomerResponse class)
@@ -52,14 +107,74 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
 * Configured **Prometheus** for collecting, storing, and querying metrics from various services
 * Visualizing metrics that Prometheus collect from Spring Boot application using **Grafana**
 
-# This application has 4 environments - DEV, TEST, UAT3, PROD
+### This application has 4 environments - DEV, TEST, UAT3, PROD
+---
 - **Dev environment** is selected by default, when application is run **Locally**. This is for developing
 - **TEST environment** is for Testing the application - Unit Testing and Integration Testing
 - **UAT3 environment** is used when application is used as **Dockerized Application**
 - **PROD environment** is used when application is used in **Minikube - Running in Kubernetes**
   
 ### Important things to note
+---
 * **H2 database** for **Testing the framework**
 * **MYSQL** used for **DEV, UAT3 and PROD environment**
 * **Prometheus and Grafana** is only setup in UAT3 envrionment
-* 
+* Application is **secure** at all environment
+
+### Project Structure
+---
+<p align="center">
+  <img src="./assets/projectstructure.png" width="650">
+</p>
+
+### Build the application without Running Tests
+---
+* Once code is ready, use the below command to clean the project, install the necessary dependencies, and package the application. The -DskipTests flag skips the test execution during the build process.
+  ```
+  mvn clean install -DskipTests
+  ```
+### Run the application Locally which is DEV environment
+---
+* Once the project is built, run Spring boot application locally using the following Maven command. By default profile selected is **dev** environment
+  ```
+  mvn spring-boot:run
+  ```
+* To run the application on different ports
+  ```
+  mvn spring-boot:run -Dspring-boot.run.arguments="--server.port=8081"
+  ```
+* Run the packaged **JAR** file instead of using mvn spring-boot:run
+  ```
+  java -jar target\myapp-1.0.jar
+  ```
+### Test the application
+---
+* Run the unit testing
+  ```
+  # To test CustomerController class
+  mvn -Dtest=CustomerControllerTest test
+
+  # To test CustomerService class
+  mvn -Dtest=CustomerServiceTest test
+  ```
+* To Run specific method in specific class
+  ```
+  mvn -Dtest=CustomerControllerTest#testGetCustomerById test
+  ```
+* Run both unit and integration testing. For integrating testing we are using **Test** profile which is **TEST** environment
+  ```
+  mvn test
+  ```
+### To automate the CI/CD pipeline for your Spring Boot application using GitHub Actions
+---
+Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
+
+  
+
+
+
+
+
+
+ 
+
