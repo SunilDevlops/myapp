@@ -135,7 +135,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
 ### Run the application Locally which is DEV environment
 ---
-* Once the project is build, make sure to have the mysql container up and running in docker desktop that must be created as a part of Prerequisities step[Check Need docker-compose file for creating mysql container named **library**](#Prerequisities-needed)
+* Once the project is build, make sure to have the mysql container up and running in docker desktop that must be created as a part of Prerequisities step     [Need docker-compose file for creating mysql container named **library**](#Prerequisities-needed)
   <p align="center">
       <img src="./assets/docker_mySQLContainer" width="650">
   </p>
