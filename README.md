@@ -120,6 +120,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
 * **MYSQL** used for **DEV, UAT3 and PROD environment**
 * **Prometheus and Grafana** is only setup in UAT3 envrionment
 * Application is **secure** at all environment
+* **AutoScaling** and **LoadBalancing** is taken care only in PROD environment
 
 ### Project Structure
 ---
@@ -313,7 +314,7 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
  ```
  docker-compose down -v
  ```
- ### Run the Spring Boot CRUD application in Dockerized Environment  -- PROD Environment
+ ### Run the Spring Boot CRUD application in Kubernetes cluster managed by Minikube  -- PROD Environment
  ---
  * To start Minikube using the Docker driver
  ```
@@ -447,6 +448,8 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    <p align="center">
       <img src="./assets/prod_deleteCustomer.png" width="650">
    </p>
+
+
    
 ##### Some basic commands of kubectl
      
@@ -483,9 +486,120 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    # Seeing the envrionment variable inside the container
    root@spring-boot-app-9f4c5bc9-v6jxx:/app# env
    ```
-   
- 
 
+ * To list all configmap 
+   ```
+   kubectl get configmaps
+   ```
+
+ * To view a configmap 
+   ```
+   kubectl get configmap <configmap-name> -o yaml
+   ```
+   
+ * To list all secrets
+   ```
+   kubectl get secrets
+   ```
+
+ * To view a secret
+   ```
+   kubectl get secret <secret-name> -o yaml
+   ```
+
+ * To delete the pods, service, deployment, hpa, configmap, secret
+   ```
+   # To delete the Horizontal Pod AutoScaler (hpa)
+   kubectl apply -f spring-boot-app-hpa.yaml
+
+   # To delete the deployment of spring-boot-app container
+   kubectl delete deployment spring-boot-app
+
+   # To delete the deployment of mysql container
+   kubectl delete deployment mysql-deployment
+
+   # To delete the service of spring-boot-app
+   kubectl delete service spring-boot-service
+
+   # To delete the service of mysql
+   kubectl delete service mysql-service
+
+   # To delete the config map
+   kubectl delete configmap app-config
+
+   # To delete the secret
+   kubectl delete secret db-secret
+   ```
+ * To stop the minikube
+   ```
+   minikube stop
+   ```
+
+ ### To configure AutoScaling using Horizontal Pod AutoScaler (hpa)
+ ---
+ * Ensure metrics server is installed. As the Horizontal Pod Autoscaler relies on the Metrics Server to gather resource usage metrics (like CPU and memory) for 
+   your pods
+   ```
+   kubectl get deployment metrics-server -n kube-system
+   ```
+   <p align="center">
+      <img src="./assets/metrics.png" width="650">
+   </p>
+
+ * If it's not installed, you can install it using the following commands:
+   ```
+   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+   ```
+   
+* Create a **Horizontal Pod Autoscaler** deployment file [See here](kubernetes/spring-boot-app-hpa.yaml)
+* Apply the hpa file
+  ```
+  kubectl apply -f spring-boot-app-hpa.yaml
+  ```
+  
+* Once HPA is created, and you can see the status of it
+  ```
+  kubectl get hpa
+  ```
+ ### For Configuring the LoadBalacing
+ * Make sure in the spring-boot-service.yaml file you need to use the **type as LoadBalancer**, which means it this application will provision an external load       balancer [Check](kubernetes/spring-boot-service.yaml)
+   <p align="center">
+     <img src="./assets/springboot_svc_loadbalancer.png" width="650">
+   </p> 
+ 
+ ### Test the Autoscaler
+ * To get the list of pods, services, deployment and hpa
+ ```
+ kubectl get pods,svc,deployment,hpa
+ ```
+ <p align="center">
+   <img src="./assets/autoscaler_1.png" width="650">
+ </p>
+
+ * Run the powershell and hit the getCustomers api in infinite loop
+ <p align="center">
+   <img src="./assets/powershell.png" width="650">
+ </p> 
+
+ * After sometime, check the hpa status. We will see the cpu usage got increased. We have configured in hpa yaml file that if it increase by 50% then autoscale       the springboot application pod. And thats what we are seeing in the below screenshot
+ ```
+ kubectl get pods,svc,deployment,hpa
+ ```
+  <p align="center">
+   <img src="./assets/autoscaler_2.png" width="650">
+ </p> 
+
+ 
+ ### Test the LoadBalancing
+ * Check the logs of all the pods of spring-boot-app. You will see the request are getting distributed between different pods
+ ```
+ # To see the logs of all the spring-boot-app pods
+ kubectl logs spring-boot-app-6d547cd469-9m6wn
+ kubectl logs spring-boot-app-6d547cd469-hfhnw
+ kubectl logs spring-boot-app-6d547cd469-jhfj8
+ kubectl logs spring-boot-app-6d547cd469-n92b2
+ kubectl logs spring-boot-app-6d547cd469-vr6xt
+ ```
 
 
 
