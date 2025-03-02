@@ -1,6 +1,8 @@
 package com.example.myapp.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -19,11 +21,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class ProjectConfig {
-    @Value("${spring.security.user.name}")
-    private String username;
 
-    @Value("${spring.security.user.password}")
-    private String password;
+    @Autowired
+    private SecurityProperties securityProperties;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()) //disables CSRF protection, common in stateless Rest APIs
@@ -37,8 +38,8 @@ public class ProjectConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         var userDetailsService = new InMemoryUserDetailsManager();
-        var user = User.withUsername(username)
-                .password(passwordEncoder().encode(password)) // Password from properties
+        var user = User.withUsername(securityProperties.getUser().getName())
+                .password(passwordEncoder().encode(securityProperties.getUser().getPassword())) // Password from properties
                 .authorities("read","write")
                 .build();
         userDetailsService.createUser(user);
