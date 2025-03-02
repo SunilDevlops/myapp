@@ -1,7 +1,6 @@
 spring:
   application:
     name: myapp
-  port: 8080
     # For development environment
   profiles:
     active: dev
