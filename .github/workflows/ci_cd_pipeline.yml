@@ -104,4 +104,4 @@ jobs:
       # Step 8: Verify deployment (optional)
       - name: Verify Spring Boot app is running
         run: |
-          -u ${{ secrets.APP_USERNAME }}:${{ secrets.APP_PASSWORD }} -f http://localhost:8080/actuator/health || exit 1  # Check if the app is healthy
+          curl -u "${{ secrets.APP_USERNAME }}:${{ secrets.APP_PASSWORD }}" -f http://localhost:8080/actuator/health || exit 1  # Check if the app is healthy
