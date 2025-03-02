@@ -69,28 +69,25 @@ jobs:
       # Step 1: Checkout code again in deploy job (if needed)
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # Step 2: Set up Docker and Docker Compose
-      - name: Set up Docker Compose
+      # Step 2: Set up Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'oracle'
+      # Step 3: Build Spring Boot app with Maven (you can also use Gradle if preferred)
+      - name: Build Spring Boot app with Maven
+        run: mvn clean install -DskipTests
+      # Step 4: Run Spring Boot app using java -jar
+      - name: Run Spring Boot app
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
-
-      # Step 3: Docker Compose up (use custom path for docker-compose.yml if required)
-      - name: Deploy using Docker Compose
-        run: |
-          # Ensure the Docker image is pulled (or built again)
-          docker-compose -f monitoring/docker-compose.yml pull  # Specify custom path for the docker-compose.yml file
-          
-          # Start the services defined in your docker-compose.yml
-          docker-compose -f monitoring/docker-compose.yml up -d  # Run in detached mode (background)
-
-      # Step 4: Optional: Wait for services to stabilize before proceeding (useful for complex apps)
+          # Change to the directory where the JAR is located, typically `target/` for Maven
+          java -jar target/myapp-1.0.jar
+      # Step 5: Optional: Wait for services to stabilize before proceeding (useful for complex apps)
       - name: Wait for Spring Boot app to start
         run: |
           sleep 30  # Wait for 30 seconds to ensure services are up (adjust as needed)
-
-      # Step 5: Verify deployment (optional)
+      # Step 6: Verify deployment (optional)
       - name: Verify Spring Boot app is running
         run: |
-          -u ${{ secrets.APP_USERNAME }}:${{ secrets.APP_PASSWORD }} -f http://localhost:8080/health || exit 1  # Check if the app is healthy
+          -u ${{ secrets.APP_USERNAME }}:${{ secrets.APP_PASSWORD }} -f http://localhost:8080/actuator/health || exit 1  # Check if the app is healthy
