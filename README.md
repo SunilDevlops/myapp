@@ -137,7 +137,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
 ---
 * Once the project is build, make sure to have the mysql container up and running in docker desktop that must be created as a part of Prerequisities step     [Need docker-compose file for creating mysql container named **library**](#Prerequisities-needed)
   <p align="center">
-      <img src="./assets/docker_mySQLContainer" width="650">
+      <img src="./assets/docker_mySQLContainer.png" width="650">
   </p>
 * Run Spring boot application locally using the following Maven command. By default profile selected is **dev** environment
   ```
@@ -157,15 +157,15 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
 curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers
 ```
 <p align="center">
-  <img src="./assets/docker_getAllCustomers.png" width="650">
+  <img src="./assets/dev_getAllCustomers.png" width="650">
 </p>
 
 ```
 # Retrieve an Customer by ID
-curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers/16
+curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers/1
 ```
 <p align="center">
-  <img src="./assets/docker_getAllCustomers.png" width="650">
+  <img src="./assets/dev_getCustomerById.png" width="650">
 </p>
   
 ```
@@ -173,7 +173,7 @@ curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers/16
 curl.exe -u dev:devPassword -X POST -H "Content-Type: application/json" -d  "{\"firstName\":\"Lisa\", \"lastName\":\"Ann\", \"emailAddress\":\"lisa.ann298@example.com\", \"phoneNumber\":\"+1 813-453-7234\"}" --location http://127.0.0.1:8080/api/customers
 ```
 <p align="center">
-  <img src="./assets/docker_getAllCustomers.png" width="650">
+  <img src="./assets/dev_createCustomer.png" width="650">
 </p>
   
 ```
@@ -181,15 +181,15 @@ curl.exe -u dev:devPassword -X POST -H "Content-Type: application/json" -d  "{\"
 curl.exe -u dev:devPassword -X PUT -H "Content-Type: application/json" -d  "{ \"phoneNumber\":\"+1 813-453-1234\"}" --location    http://127.0.0.1:8080/api/customers/15
 ```
 <p align="center">
-  <img src="./assets/docker_getAllCustomers.png" width="650">
+  <img src="./assets/dev_updateCustomer.png" width="650">
 </p>
   
 ```
 # Delete an Customer
-curl.exe -u dev:devPassword -X DELETE --location http://127.0.0.1:8080/api/customers/21
+curl.exe -u dev:devPassword -X DELETE --location http://127.0.0.1:8080/api/customers/19
 ```
 <p align="center">
-  <img src="./assets/docker_getAllCustomers.png" width="650">
+  <img src="./assets/dev_deleteCustomer.png" width="650">
 </p>
 
 ### Test the application with unit and integration testing
@@ -279,7 +279,7 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    curl.exe -u uat3:uat3Password --location http://127.0.0.1:8080/api/customers/16
    ```
    <p align="center">
-      <img src="./assets/docker_getAllCustomers.png" width="650">
+      <img src="./assets/docker_getCustomerById.png" width="650">
    </p>
       
    ```
@@ -287,7 +287,7 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    curl.exe -u uat3:uat3Password -X POST -H "Content-Type: application/json" -d  "{\"firstName\":\"Lisa\", \"lastName\":\"Ann\", \"emailAddress\":\"lisa.ann298@example.com\", \"phoneNumber\":\"+1 813-453-7234\"}" --location http://127.0.0.1:8080/api/customers
    ```
    <p align="center">
-      <img src="./assets/docker_getAllCustomers.png" width="650">
+      <img src="./assets/docker_createCustomer.png" width="650">
    </p>
       
    ```
@@ -295,7 +295,7 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    curl.exe -u uat3:uat3Password -X PUT -H "Content-Type: application/json" -d  "{ \"phoneNumber\":\"+1 813-453-1234\"}" --location    http://127.0.0.1:8080/api/customers/15
    ```
    <p align="center">
-      <img src="./assets/docker_getAllCustomers.png" width="650">
+      <img src="./assets/docker_updateCustomer.png" width="650">
    </p>
       
    ```
@@ -303,7 +303,7 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    curl.exe -u uat3:uat3Password -X DELETE --location http://127.0.0.1:8080/api/customers/21
    ```
    <p align="center">
-      <img src="./assets/docker_getAllCustomers.png" width="650">
+      <img src="./assets/docker_deleteCustomer.png" width="650">
    </p>
 
   
