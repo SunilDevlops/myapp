@@ -389,11 +389,21 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    ```
    > **Note**
    > password will ask in prompt - give **pass**
-   > Refer the below screenshot how to execute the **init.sql**
+   > and
+   > refer the below screenshot how to execute the **init.sql**
    <p align="center">
       <img src="./assets/kubectl_executemysqlinit.png" width="650">
    </p>
-
+   
+ * To expose a Kubernetes service running in Minikube and retrieve the URL to access the service externally
+   ```
+   minikube service spring-boot-service --url
+   ```
+   > **Note**
+   > this need to be run in one terminal and in other terminal you can do the curl request or hit the application from postman
+   <p align="center">
+      <img src="./assets/minikube_springboot_run.png" width="650">
+   </p>
    
 ##### Some basic commands of kubectl
      
@@ -421,7 +431,15 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
    ```
    kubectl describe deployment <deployment-name>
    ```
+   
+ * To enter into any pods and run commands directly inside the container
+   ```
+   # Getting inside the container
+   kubectl exec -it spring-boot-app-9f4c5bc9-v6jxx -- /bin/bash
 
+   # Seeing the envrionment variable inside the container
+   root@spring-boot-app-9f4c5bc9-v6jxx:/app# env
+   ```
    
  
 
