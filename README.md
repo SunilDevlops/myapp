@@ -21,7 +21,7 @@
 * Create Docker Hub credentials to access Docker images and repositories  
 * Need docker-compose file for creating mysql container named **library**
   > **Note**
-  > Saved in Project path : [docker-compose.yml](monitoring/mysqlContainer/docker-compose.yml)
+  > Saved in Project path : [docker-compose.yml](docker/mysqlContainer/docker-compose.yml)
   ##### Run the docker-compose command to startup the mysql container
   ```
   docker-compose up -d
@@ -167,7 +167,28 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   ```
 ### To automate the CI/CD pipeline for your Spring Boot application using GitHub Actions
 ---
+* This GitHub Actions workflow automates the process of building and deploying a Spring Boot application.
 Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
+* It includes:
+  - Build
+    - Setting up Java and Docker environments
+    - Building the application with Maven
+    - Running tests
+    - Package it
+    - Build the docker image
+    - Push the docker image
+  - Deploy
+    - Setting up Java and Docker-Compose environments
+    - Deploy the mysql Container using [docker_compose.yml](monitoring/mysqlContainer/docker-compose.yml)
+    - Build 
+    - Run the application
+      > **Note**
+      > This CRUD Spring Boot application will connect to external MYSQL database running in mysql Container in docker
+    - Verify the health of the application
+ ### Run the Spring Boot CRUD application in Dockerized Environment
+   
+    
+
 
   
 
