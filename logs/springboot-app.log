@@ -4965,3 +4965,810 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2025-03-01 21:05:53 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-01 21:05:53 - HikariPool-1 - Shutdown initiated...
 2025-03-01 21:05:53 - HikariPool-1 - Shutdown completed.
+2025-03-02 08:41:18 - Starting MyappApplication using Java 17.0.4.1 with PID 32584 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:41:18 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:41:18 - The following 1 profile is active: "dev"
+2025-03-02 08:41:19 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:41:19 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:41:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:41:19 - Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
+2025-03-02 08:41:20 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:41:20 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:41:20 - Starting service [Tomcat]
+2025-03-02 08:41:20 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:41:20 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:41:20 - Root WebApplicationContext: initialization completed in 1509 ms
+2025-03-02 08:41:20 - Filter 'requestFilter' configured for use
+2025-03-02 08:41:21 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:41:21 - HikariCP - Starting...
+2025-03-02 08:41:22 - SQL Error: 0, SQLState: 08S01
+2025-03-02 08:41:22 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2025-03-02 08:41:22 - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:292)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:124)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:78)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.myapp.MyappApplication.main(MyappApplication.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 40 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:949)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:819)
+	... 53 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
+	... 56 common frames omitted
+2025-03-02 08:41:22 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:41:22 - HikariCP - Starting...
+2025-03-02 08:41:23 - SQL Error: 0, SQLState: 08S01
+2025-03-02 08:41:23 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2025-03-02 08:41:23 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+2025-03-02 08:41:23 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+2025-03-02 08:41:23 - Stopping service [Tomcat]
+2025-03-02 08:41:23 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-02 08:41:23 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.myapp.MyappApplication.main(MyappApplication.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 24 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 45 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:949)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:819)
+	... 58 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
+	... 61 common frames omitted
+2025-03-02 08:41:39 - Starting MyappApplication using Java 17.0.4.1 with PID 47604 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:41:39 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:41:39 - The following 1 profile is active: "dev"
+2025-03-02 08:41:39 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:41:39 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:41:39 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:41:40 - Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2025-03-02 08:41:40 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:41:40 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:41:40 - Starting service [Tomcat]
+2025-03-02 08:41:40 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:41:40 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:41:40 - Root WebApplicationContext: initialization completed in 1496 ms
+2025-03-02 08:41:40 - Filter 'requestFilter' configured for use
+2025-03-02 08:41:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:41:41 - HikariCP - Starting...
+2025-03-02 08:41:41 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d8b109c
+2025-03-02 08:41:41 - HikariCP - Start completed.
+2025-03-02 08:41:41 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:41:42 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:41:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:41:42 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:41:43 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:41:43 - LiveReload server is running on port 35729
+2025-03-02 08:41:43 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:41:43 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 08:41:43 - Started MyappApplication in 4.841 seconds (process running for 5.183)
+2025-03-02 08:41:54 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-02 08:41:54 - Initializing Servlet 'dispatcherServlet'
+2025-03-02 08:41:54 - Completed initialization in 1 ms
+2025-03-02 08:42:04 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:42:04 - Request is being handled by pod: null
+2025-03-02 08:42:04 - Inside request filter - doFilterInternal method
+2025-03-02 08:42:04 - requestId : 83225510-8514-4d38-8a3c-a7853d9fd24a
+2025-03-02 08:42:04 - requestUrl : /api/customers
+2025-03-02 08:42:04 - activeProfile : dev
+2025-03-02 08:42:04 - Calling getAllCustomers....
+2025-03-02 08:42:04 - Customers are found of totalsize - 16
+2025-03-02 08:42:04 - Sending list of customers as part of the responseData
+2025-03-02 08:42:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:42:43 - HikariCP - Shutdown initiated...
+2025-03-02 08:42:43 - HikariCP - Shutdown completed.
+2025-03-02 08:43:01 - Starting MyappApplication using Java 17.0.4.1 with PID 31536 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:43:01 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:43:01 - The following 1 profile is active: "dev"
+2025-03-02 08:43:01 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:43:01 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:43:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:43:02 - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-03-02 08:43:02 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:43:02 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:43:02 - Starting service [Tomcat]
+2025-03-02 08:43:02 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:43:02 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:43:02 - Root WebApplicationContext: initialization completed in 1408 ms
+2025-03-02 08:43:03 - Filter 'requestFilter' configured for use
+2025-03-02 08:43:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:43:03 - HikariCP - Starting...
+2025-03-02 08:43:03 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f4a37ee
+2025-03-02 08:43:03 - HikariCP - Start completed.
+2025-03-02 08:43:03 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:43:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:43:04 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:43:04 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:43:05 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:43:05 - LiveReload server is running on port 35729
+2025-03-02 08:43:05 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:43:05 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 08:43:05 - Started MyappApplication in 4.388 seconds (process running for 4.703)
+2025-03-02 08:43:45 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:43:45 - HikariCP - Shutdown initiated...
+2025-03-02 08:43:45 - HikariCP - Shutdown completed.
+2025-03-02 08:44:18 - Starting MyappApplication using Java 17.0.4.1 with PID 37820 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:44:18 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:44:18 - The following 1 profile is active: "dev"
+2025-03-02 08:44:18 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:44:18 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:44:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:44:19 - Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
+2025-03-02 08:44:19 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:44:19 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:44:19 - Starting service [Tomcat]
+2025-03-02 08:44:19 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:44:19 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:44:19 - Root WebApplicationContext: initialization completed in 1539 ms
+2025-03-02 08:44:19 - Filter 'requestFilter' configured for use
+2025-03-02 08:44:20 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:44:20 - HikariCP - Starting...
+2025-03-02 08:44:20 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@5188dadb
+2025-03-02 08:44:20 - HikariCP - Start completed.
+2025-03-02 08:44:20 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:44:21 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:44:21 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:44:21 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:44:21 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:44:22 - LiveReload server is running on port 35729
+2025-03-02 08:44:22 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:44:22 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 08:44:22 - Started MyappApplication in 4.588 seconds (process running for 4.889)
+2025-03-02 08:44:24 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:44:24 - HikariCP - Shutdown initiated...
+2025-03-02 08:44:24 - HikariCP - Shutdown completed.
+2025-03-02 08:44:31 - Starting MyappApplication using Java 17.0.4.1 with PID 46372 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:44:31 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:44:31 - The following 1 profile is active: "dev"
+2025-03-02 08:44:31 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:44:31 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:44:31 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:44:32 - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
+2025-03-02 08:44:32 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:44:32 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:44:32 - Starting service [Tomcat]
+2025-03-02 08:44:32 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:44:32 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:44:32 - Root WebApplicationContext: initialization completed in 1385 ms
+2025-03-02 08:44:32 - Filter 'requestFilter' configured for use
+2025-03-02 08:44:33 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:44:33 - HikariCP - Starting...
+2025-03-02 08:44:33 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e5cecc1
+2025-03-02 08:44:33 - HikariCP - Start completed.
+2025-03-02 08:44:33 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:44:34 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:44:34 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:44:34 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:44:34 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:44:35 - LiveReload server is running on port 35729
+2025-03-02 08:44:35 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:44:35 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 08:44:35 - Started MyappApplication in 4.296 seconds (process running for 4.651)
+2025-03-02 08:44:39 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:44:39 - HikariCP - Shutdown initiated...
+2025-03-02 08:44:39 - HikariCP - Shutdown completed.
+2025-03-02 08:46:02 - Starting MyappApplication using Java 17.0.4.1 with PID 29280 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:46:02 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:46:02 - The following 1 profile is active: "dev"
+2025-03-02 08:46:02 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:46:02 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:46:03 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:46:03 - Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
+2025-03-02 08:46:04 - Tomcat initialized with port 8081 (http)
+2025-03-02 08:46:04 - Initializing ProtocolHandler ["http-nio-8081"]
+2025-03-02 08:46:04 - Starting service [Tomcat]
+2025-03-02 08:46:04 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:46:04 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:46:04 - Root WebApplicationContext: initialization completed in 1425 ms
+2025-03-02 08:46:04 - Filter 'requestFilter' configured for use
+2025-03-02 08:46:04 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:46:04 - HikariCP - Starting...
+2025-03-02 08:46:04 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ebb03df
+2025-03-02 08:46:04 - HikariCP - Start completed.
+2025-03-02 08:46:05 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:46:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:46:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:46:06 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:46:06 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:46:06 - LiveReload server is running on port 35729
+2025-03-02 08:46:06 - Starting ProtocolHandler ["http-nio-8081"]
+2025-03-02 08:46:06 - Tomcat started on port 8081 (http) with context path '/'
+2025-03-02 08:46:06 - Started MyappApplication in 4.399 seconds (process running for 4.706)
+2025-03-02 08:46:08 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:46:08 - HikariCP - Shutdown initiated...
+2025-03-02 08:46:08 - HikariCP - Shutdown completed.
+2025-03-02 08:46:16 - Starting MyappApplication using Java 17.0.4.1 with PID 35772 (C:\Sunilpatro\Interview\myapp\target\classes started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:46:16 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:46:16 - The following 1 profile is active: "dev"
+2025-03-02 08:46:16 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-02 08:46:16 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-02 08:46:17 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:46:17 - Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2025-03-02 08:46:17 - Tomcat initialized with port 8081 (http)
+2025-03-02 08:46:17 - Initializing ProtocolHandler ["http-nio-8081"]
+2025-03-02 08:46:17 - Starting service [Tomcat]
+2025-03-02 08:46:17 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:46:17 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:46:17 - Root WebApplicationContext: initialization completed in 1425 ms
+2025-03-02 08:46:18 - Filter 'requestFilter' configured for use
+2025-03-02 08:46:18 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:46:18 - HikariCP - Starting...
+2025-03-02 08:46:18 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@683a2ac7
+2025-03-02 08:46:18 - HikariCP - Start completed.
+2025-03-02 08:46:18 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:46:19 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:46:19 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:46:19 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:46:20 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:46:20 - LiveReload server is running on port 35729
+2025-03-02 08:46:20 - Starting ProtocolHandler ["http-nio-8081"]
+2025-03-02 08:46:20 - Tomcat started on port 8081 (http) with context path '/'
+2025-03-02 08:46:20 - Started MyappApplication in 4.442 seconds (process running for 4.754)
+2025-03-02 08:46:34 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-02 08:46:34 - Initializing Servlet 'dispatcherServlet'
+2025-03-02 08:46:34 - Completed initialization in 2 ms
+2025-03-02 08:46:34 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:46:34 - Request is being handled by pod: null
+2025-03-02 08:46:34 - Inside request filter - doFilterInternal method
+2025-03-02 08:46:34 - requestId : dccea51e-7c88-4261-a060-309b5a75a7d0
+2025-03-02 08:46:34 - requestUrl : /api/customers
+2025-03-02 08:46:34 - activeProfile : dev
+2025-03-02 08:46:34 - Calling getAllCustomers....
+2025-03-02 08:46:34 - Customers are found of totalsize - 16
+2025-03-02 08:46:34 - Sending list of customers as part of the responseData
+2025-03-02 08:46:37 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:46:37 - HikariCP - Shutdown initiated...
+2025-03-02 08:46:37 - HikariCP - Shutdown completed.
+2025-03-02 08:47:58 - Starting MyappApplication v1.0 using Java 17.0.4.1 with PID 33440 (C:\Sunilpatro\Interview\myapp\target\myapp-1.0.jar started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:47:58 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:47:58 - The following 1 profile is active: "dev"
+2025-03-02 08:47:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:47:59 - Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2025-03-02 08:48:00 - Tomcat initialized with port 8080 (http)
+2025-03-02 08:48:00 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:48:00 - Starting service [Tomcat]
+2025-03-02 08:48:00 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-02 08:48:00 - Initializing Spring embedded WebApplicationContext
+2025-03-02 08:48:00 - Root WebApplicationContext: initialization completed in 2421 ms
+2025-03-02 08:48:01 - Filter 'requestFilter' configured for use
+2025-03-02 08:48:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:48:01 - HikariCP - Starting...
+2025-03-02 08:48:02 - HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ffa0f38
+2025-03-02 08:48:02 - HikariCP - Start completed.
+2025-03-02 08:48:02 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:48:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:48:03 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:48:03 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:48:04 - Exposing 15 endpoints beneath base path '/actuator'
+2025-03-02 08:48:05 - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-02 08:48:05 - Tomcat started on port 8080 (http) with context path '/'
+2025-03-02 08:48:05 - Started MyappApplication in 7.721 seconds (process running for 8.286)
+2025-03-02 08:48:12 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:48:12 - HikariCP - Shutdown initiated...
+2025-03-02 08:48:12 - HikariCP - Shutdown completed.
+2025-03-02 08:54:08 - Starting MyappApplicationTests using Java 17.0.4.1 with PID 11080 (started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 08:54:08 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 08:54:08 - The following 1 profile is active: "test"
+2025-03-02 08:54:09 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 08:54:09 - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
+2025-03-02 08:54:09 - HikariPool-1 - Starting...
+2025-03-02 08:54:10 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-03-02 08:54:10 - HikariPool-1 - Start completed.
+2025-03-02 08:54:10 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 08:54:10 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 08:54:11 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:54:11 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 08:54:11 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 08:54:12 - Exposing 14 endpoints beneath base path '/actuator'
+2025-03-02 08:54:12 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-03-02 08:54:12 - Filter 'requestFilter' configured for use
+2025-03-02 08:54:12 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:12 - Initializing Servlet ''
+2025-03-02 08:54:12 - Completed initialization in 1 ms
+2025-03-02 08:54:12 - Started MyappApplicationTests in 4.911 seconds (process running for 8.082)
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : cb0764e8-2ce2-483c-82c8-34e8f7482a15
+2025-03-02 08:54:13 - requestUrl : /api/customers/6
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling getCustomerById....
+2025-03-02 08:54:13 - Customer retrieved successfully with id 6
+2025-03-02 08:54:13 - Got customer resposne for id :6
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 64045341-838d-41fe-b68c-50242e360cbf
+2025-03-02 08:54:13 - requestUrl : /api/customers/9999
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling getCustomerById....
+2025-03-02 08:54:13 - Customer not found with id 9999
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 16be90bd-d36e-4e13-b263-05b8dbd1f5bb
+2025-03-02 08:54:13 - requestUrl : /api/customers
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling getAllCustomers....
+2025-03-02 08:54:13 - Customers are found of totalsize - 7
+2025-03-02 08:54:13 - Sending list of customers as part of the responseData
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 2a7d0ddb-8b1b-4036-8372-df1ac7686daa
+2025-03-02 08:54:13 - requestUrl : /api/customers
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 8d14dbea-64d9-467a-adbd-5ae06303cd7b
+2025-03-02 08:54:13 - requestUrl : /api/customers/1
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling updateCustomer....
+2025-03-02 08:54:13 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 08:54:13 - Going to update customer
+2025-03-02 08:54:13 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 08:54:13 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 08:54:13 - Customer updated successfully with id 1
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 6d34aacc-ad70-42f6-a853-46d514786bee
+2025-03-02 08:54:13 - requestUrl : /api/customers
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling createCustomer....
+2025-03-02 08:54:13 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 08:54:13 - Going to creating customer
+2025-03-02 08:54:13 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 08:54:13 - Customer created successfully with id 8
+2025-03-02 08:54:13 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 08:54:13 - Request is being handled by pod: null
+2025-03-02 08:54:13 - Inside request filter - doFilterInternal method
+2025-03-02 08:54:13 - requestId : 4db9f763-d136-47c4-b30d-efa5cf29bb86
+2025-03-02 08:54:13 - requestUrl : /api/customers/1
+2025-03-02 08:54:13 - activeProfile : test
+2025-03-02 08:54:13 - Calling deleteCustomerById....
+2025-03-02 08:54:13 - Customer retrieved successfully with id 1
+2025-03-02 08:54:13 - Customer retrieved successfully with id 1
+2025-03-02 08:54:13 - Customer deleted successfully with id 1
+2025-03-02 08:54:13 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:13 - Initializing Servlet ''
+2025-03-02 08:54:13 - Completed initialization in 0 ms
+2025-03-02 08:54:13 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:13 - Initializing Servlet ''
+2025-03-02 08:54:13 - Completed initialization in 0 ms
+2025-03-02 08:54:13 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:13 - Initializing Servlet ''
+2025-03-02 08:54:13 - Completed initialization in 0 ms
+2025-03-02 08:54:13 - Could not update. Customer not found for id null
+2025-03-02 08:54:13 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:13 - Initializing Servlet ''
+2025-03-02 08:54:13 - Completed initialization in 0 ms
+2025-03-02 08:54:13 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 08:54:14 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:14 - Initializing Servlet ''
+2025-03-02 08:54:14 - Completed initialization in 0 ms
+2025-03-02 08:54:14 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:14 - Initializing Servlet ''
+2025-03-02 08:54:14 - Completed initialization in 0 ms
+2025-03-02 08:54:14 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 08:54:14 - Initializing Servlet ''
+2025-03-02 08:54:14 - Completed initialization in 0 ms
+2025-03-02 08:54:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 08:54:14 - HikariPool-1 - Shutdown initiated...
+2025-03-02 08:54:14 - HikariPool-1 - Shutdown completed.
+2025-03-02 09:13:18 - Starting MyappApplicationTests using Java 17.0.4.1 with PID 20580 (started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 09:13:18 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 09:13:18 - The following 1 profile is active: "test"
+2025-03-02 09:13:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 09:13:19 - Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2025-03-02 09:13:20 - HikariPool-1 - Starting...
+2025-03-02 09:13:20 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-03-02 09:13:20 - HikariPool-1 - Start completed.
+2025-03-02 09:13:20 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 09:13:20 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 09:13:21 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 09:13:21 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 09:13:22 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 09:13:22 - Exposing 14 endpoints beneath base path '/actuator'
+2025-03-02 09:13:23 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-03-02 09:13:23 - Filter 'requestFilter' configured for use
+2025-03-02 09:13:23 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:23 - Initializing Servlet ''
+2025-03-02 09:13:23 - Completed initialization in 1 ms
+2025-03-02 09:13:23 - Started MyappApplicationTests in 5.63 seconds (process running for 8.703)
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : 840bc3fa-a979-47ac-b0fb-759ebb169653
+2025-03-02 09:13:24 - requestUrl : /api/customers/6
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling getCustomerById....
+2025-03-02 09:13:24 - Customer retrieved successfully with id 6
+2025-03-02 09:13:24 - Got customer resposne for id :6
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : d6b8332a-295b-4b43-98c6-fa982f7bf9d5
+2025-03-02 09:13:24 - requestUrl : /api/customers/9999
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling getCustomerById....
+2025-03-02 09:13:24 - Customer not found with id 9999
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : 2cc89e48-2c53-47bf-ab59-90ef44469245
+2025-03-02 09:13:24 - requestUrl : /api/customers
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling getAllCustomers....
+2025-03-02 09:13:24 - Customers are found of totalsize - 7
+2025-03-02 09:13:24 - Sending list of customers as part of the responseData
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : 55294876-d395-49c9-9b8c-7d0785c7fe87
+2025-03-02 09:13:24 - requestUrl : /api/customers
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : ffbe23a0-6fbe-4205-be75-257a9aec7af1
+2025-03-02 09:13:24 - requestUrl : /api/customers/1
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling updateCustomer....
+2025-03-02 09:13:24 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 09:13:24 - Going to update customer
+2025-03-02 09:13:24 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 09:13:24 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 09:13:24 - Customer updated successfully with id 1
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : 3a27e59d-312e-427e-8d9f-4b2da1e67e4d
+2025-03-02 09:13:24 - requestUrl : /api/customers
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling createCustomer....
+2025-03-02 09:13:24 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 09:13:24 - Going to creating customer
+2025-03-02 09:13:24 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 09:13:24 - Customer created successfully with id 8
+2025-03-02 09:13:24 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:13:24 - Request is being handled by pod: null
+2025-03-02 09:13:24 - Inside request filter - doFilterInternal method
+2025-03-02 09:13:24 - requestId : 46a5ceb3-e17b-430b-961a-1100edee3842
+2025-03-02 09:13:24 - requestUrl : /api/customers/1
+2025-03-02 09:13:24 - activeProfile : test
+2025-03-02 09:13:24 - Calling deleteCustomerById....
+2025-03-02 09:13:24 - Customer retrieved successfully with id 1
+2025-03-02 09:13:24 - Customer retrieved successfully with id 1
+2025-03-02 09:13:24 - Customer deleted successfully with id 1
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 1 ms
+2025-03-02 09:13:24 - Could not update. Customer not found for id null
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:13:24 - Initializing Servlet ''
+2025-03-02 09:13:24 - Completed initialization in 0 ms
+2025-03-02 09:13:24 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 09:13:24 - HikariPool-1 - Shutdown initiated...
+2025-03-02 09:13:24 - HikariPool-1 - Shutdown completed.
+2025-03-02 09:14:10 - Starting MyappApplicationTests using Java 17.0.4.1 with PID 51060 (started by Sunil Kumar Patro in C:\Sunilpatro\Interview\myapp)
+2025-03-02 09:14:10 - Running with Spring Boot v3.3.7, Spring v6.1.16
+2025-03-02 09:14:10 - The following 1 profile is active: "test"
+2025-03-02 09:14:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-02 09:14:10 - Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2025-03-02 09:14:11 - HikariPool-1 - Starting...
+2025-03-02 09:14:11 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-03-02 09:14:11 - HikariPool-1 - Start completed.
+2025-03-02 09:14:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-02 09:14:11 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-02 09:14:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 09:14:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-02 09:14:13 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-03-02 09:14:14 - Exposing 14 endpoints beneath base path '/actuator'
+2025-03-02 09:14:14 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-03-02 09:14:14 - Filter 'requestFilter' configured for use
+2025-03-02 09:14:14 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:14 - Initializing Servlet ''
+2025-03-02 09:14:14 - Completed initialization in 1 ms
+2025-03-02 09:14:15 - Started MyappApplicationTests in 5.435 seconds (process running for 8.547)
+2025-03-02 09:14:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:15 - Request is being handled by pod: null
+2025-03-02 09:14:15 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:15 - requestId : 14708292-ce5e-4164-a16c-659f500f8a58
+2025-03-02 09:14:15 - requestUrl : /api/customers/6
+2025-03-02 09:14:15 - activeProfile : test
+2025-03-02 09:14:15 - Calling getCustomerById....
+2025-03-02 09:14:15 - Customer retrieved successfully with id 6
+2025-03-02 09:14:15 - Got customer resposne for id :6
+2025-03-02 09:14:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:15 - Request is being handled by pod: null
+2025-03-02 09:14:15 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:15 - requestId : 649f7298-b255-4a36-a876-b02d54cdde5a
+2025-03-02 09:14:15 - requestUrl : /api/customers/9999
+2025-03-02 09:14:15 - activeProfile : test
+2025-03-02 09:14:15 - Calling getCustomerById....
+2025-03-02 09:14:15 - Customer not found with id 9999
+2025-03-02 09:14:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:15 - Request is being handled by pod: null
+2025-03-02 09:14:15 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:15 - requestId : 7fd8be22-2a3f-49f7-aa59-9bab4ce9fd5b
+2025-03-02 09:14:15 - requestUrl : /api/customers
+2025-03-02 09:14:15 - activeProfile : test
+2025-03-02 09:14:15 - Calling getAllCustomers....
+2025-03-02 09:14:15 - Customers are found of totalsize - 7
+2025-03-02 09:14:15 - Sending list of customers as part of the responseData
+2025-03-02 09:14:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:15 - Request is being handled by pod: null
+2025-03-02 09:14:15 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:15 - requestId : b3be471d-036f-46b9-a1ab-c1afbd350720
+2025-03-02 09:14:15 - requestUrl : /api/customers
+2025-03-02 09:14:15 - activeProfile : test
+2025-03-02 09:14:15 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:15 - Request is being handled by pod: null
+2025-03-02 09:14:15 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:15 - requestId : 4479f1b2-f54a-48b0-be93-dee299b6bd48
+2025-03-02 09:14:15 - requestUrl : /api/customers/1
+2025-03-02 09:14:15 - activeProfile : test
+2025-03-02 09:14:15 - Calling updateCustomer....
+2025-03-02 09:14:15 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 09:14:15 - Going to update customer
+2025-03-02 09:14:15 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 09:14:15 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 09:14:15 - Customer updated successfully with id 1
+2025-03-02 09:14:16 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:16 - Request is being handled by pod: null
+2025-03-02 09:14:16 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:16 - requestId : 764744b6-2297-4f59-9241-0ad73de47eed
+2025-03-02 09:14:16 - requestUrl : /api/customers
+2025-03-02 09:14:16 - activeProfile : test
+2025-03-02 09:14:16 - Calling createCustomer....
+2025-03-02 09:14:16 - Map the CustomerRequest to Customer using the CustomerMapper
+2025-03-02 09:14:16 - Going to creating customer
+2025-03-02 09:14:16 - Converting the Customer to CustomerResponse using the CustomerMapper
+2025-03-02 09:14:16 - Customer created successfully with id 8
+2025-03-02 09:14:16 - Inside RequestLogging filter - doFilterInternal method
+2025-03-02 09:14:16 - Request is being handled by pod: null
+2025-03-02 09:14:16 - Inside request filter - doFilterInternal method
+2025-03-02 09:14:16 - requestId : 83e820c4-2cb7-4d60-be02-aef94e0cbcd4
+2025-03-02 09:14:16 - requestUrl : /api/customers/1
+2025-03-02 09:14:16 - activeProfile : test
+2025-03-02 09:14:16 - Calling deleteCustomerById....
+2025-03-02 09:14:16 - Customer retrieved successfully with id 1
+2025-03-02 09:14:16 - Customer retrieved successfully with id 1
+2025-03-02 09:14:16 - Customer deleted successfully with id 1
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 1 ms
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Could not update. Customer not found for id null
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Update fields only if new values are provided, otherwise keep the existing values
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Initializing Spring TestDispatcherServlet ''
+2025-03-02 09:14:16 - Initializing Servlet ''
+2025-03-02 09:14:16 - Completed initialization in 0 ms
+2025-03-02 09:14:16 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-02 09:14:16 - HikariPool-1 - Shutdown initiated...
+2025-03-02 09:14:16 - HikariPool-1 - Shutdown completed.
