@@ -95,7 +95,8 @@ jobs:
       - name: Run Spring Boot app
         run: |
           # Change to the directory where the JAR is located, typically `target/` for Maven
-          java -jar target/myapp-1.0.jar
+          # Run Spring Boot app in the background using nohup
+          nohup java -jar target/myapp-1.0.jar > app.log 2>&1 &
       # Step 7: Optional: Wait for services to stabilize before proceeding (useful for complex apps)
       - name: Wait for Spring Boot app to start
         run: |
