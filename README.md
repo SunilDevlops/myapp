@@ -562,10 +562,8 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
   kubectl get hpa
   ```
  ### For Configuring the LoadBalacing
- * Make sure in the spring-boot-service.yaml file you need to use the **type as LoadBalancer**, which means it this application will provision an external load       balancer [Check](kubernetes/spring-boot-service.yaml)
-   <p align="center">
-     <img src="./assets/springboot_svc_loadbalancer.png" width="650">
-   </p> 
+ * Make sure in the spring-boot-service.yaml file you need to use the **type as LoadBalancer**, which means it this application will provision an external load       balancer [Check the file](kubernetes/spring-boot-service.yaml)
+
  
  ### Test the Autoscaler
  * To get the list of pods, services, deployment and hpa
