@@ -152,6 +152,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   java -jar target\myapp-1.0.jar
   ```
 ### Test the application
+---
 ```
 # Retrieve all Customers
 curl.exe -u dev:devPassword --location http://127.0.0.1:8080/api/customers
@@ -192,7 +193,7 @@ curl.exe -u dev:devPassword -X DELETE --location http://127.0.0.1:8080/api/custo
   <img src="./assets/dev_deleteCustomer.png" width="650">
 </p>
 
-### Test the application with unit and integration testing
+### Test the application with unit and integration testing -- TEST Environment
 ---
 * Run the unit testing
   ```
@@ -230,9 +231,9 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
       > **Note**
       > This CRUD Spring Boot application will connect to external MYSQL database running in mysql Container in docker
     - Verify the health of the application
- ### Run the Spring Boot CRUD application in Dockerized Environment
+ ### Run the Spring Boot CRUD application in Dockerized Environment  -- UAT3 Environment
  ---
- * To Start the application using [docker_compose.yml](docker/docker-compose.yml)
+ * To Start the Docker containers, networks, and volumes associated with a docker-compose project using [docker_compose.yml](docker/docker-compose.yml)
  ```
  docker-compose up
  ```
@@ -306,7 +307,10 @@ Please refer to [ci_cd_pipeline.yml](.github/workflows/ci_cd_pipeline.yml)
       <img src="./assets/docker_deleteCustomer.png" width="650">
    </p>
 
-  
+ * To Stop and Remove Docker containers, networks, and volumes associated with a docker-compose project using [docker_compose.yml](docker/docker-compose.yml)
+ ```
+ docker-compose down -v
+ ```
 
 
 
