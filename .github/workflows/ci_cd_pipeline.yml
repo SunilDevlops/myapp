@@ -50,17 +50,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       # Step 5: Build the Docker image
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }} .
+        run: docker build . -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }} .
 
       # Step 6: Push the Docker image to Docker Hub
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }}
 
-      # Step 7: Optional - Tag and push 'latest' version
-      - name: Tag and push 'latest'
-        run: |
-          docker tag ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-springboot-curd-app:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build  # This ensures the 'build' job must run before this
