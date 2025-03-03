@@ -1,7 +1,7 @@
 spring:
   application:
     name: myapp
-    # For development environment
+  # For development environment
   profiles:
     active: dev
 
