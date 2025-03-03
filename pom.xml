@@ -12,7 +12,7 @@
 	<artifactId>myapp</artifactId>
 	<version>1.0</version>
 	<name>myapp</name>
-	<description>CURD project for Spring Boot</description>
+	<description>CRUD project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
