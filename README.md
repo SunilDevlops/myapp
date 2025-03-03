@@ -62,6 +62,7 @@ To create a simple Spring Boot CRUD (Create, Read, Update, Delete) application i
   - MySQL Database (as an external database)
   - Spring Boot DevTools (for live reloading during development)
   - Lombok (to avoid boilerplate code)
+  - Spring Security (for HTTP Basic Authentication)
   - Spring Validation (for bean validation)
   - Jackson-databind library (to handle the automatic conversion between Java objects to and from JSON)
   - MapStruct library (to reduce the amount of manual mapping code in your application)
